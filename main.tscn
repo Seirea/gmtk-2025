@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bme63dk02bfow"]
+
+[ext_resource type="PackedScene" uid="uid://cdqvhnb1j724x" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cqydgx0u5afaq" path="res://level_1.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://byrcjam3g3gd" path="res://clones.gd" id="3_h2yge"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Level1" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(-4, 27)
+
+[node name="Clones" type="Node2D" parent="."]
+script = ExtResource("3_h2yge")
