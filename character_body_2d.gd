@@ -11,11 +11,9 @@ func kill() -> void:
 	clone.get_node("CharacterBody2D").is_clone = true
 	clone.position = position
 
-	position = Vector2(0,0)
+	position = Vector2.ZERO
 	
 	get_node("/root/Main/Clones").add_child(clone)
-	
-	
 
 func _input(event: InputEvent) -> void:
 	if is_clone:
@@ -25,6 +23,7 @@ func _input(event: InputEvent) -> void:
 		kill()
 	
 	if event.is_action_pressed("hard_reset"):
+		kill()
 		get_node("/root/Main/Clones").clear_all_clones();
 	
 	
