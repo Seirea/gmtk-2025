@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bme63dk02bfow"]
+[gd_scene load_steps=5 format=3 uid="uid://che0d3y6ysfc0"]
 
 [ext_resource type="PackedScene" uid="uid://cdqvhnb1j724x" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://cqydgx0u5afaq" path="res://level_1.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://byrcjam3g3gd" path="res://clones.gd" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://dull33m2qhb8h" path="res://kill_brick.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://lgqdcyhobpxh" path="res://level_1.tscn" id="2_0xm2m"]
+[ext_resource type="Script" path="res://clones.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://kill_brick.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Node2D"]
 
