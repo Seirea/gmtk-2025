@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bs6i2iib4j5kk"]
 
-[ext_resource type="PackedScene" uid="uid://dm4rdxfmew5un" path="res://block.tscn" id="1_jg0dc"]
+[ext_resource type="PackedScene" uid="uid://dm4rdxfmew5un" path="res://World/block.tscn" id="1_jg0dc"]
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="Block2" parent="." instance=ExtResource("1_jg0dc")]
 position = Vector2(169.426, -29.109)
