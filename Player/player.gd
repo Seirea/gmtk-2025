@@ -8,7 +8,7 @@ var loaded = preload("res://Player/player.tscn")
 
 func kill() -> void:
 	var clone = loaded.instantiate()
-	clone.get_node("CharacterBody2D").is_clone = true
+	clone.is_clone = true
 	clone.position = position
 
 	position = Vector2.ZERO

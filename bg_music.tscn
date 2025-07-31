@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bipacar7nvbap"]
 
-[ext_resource type="AudioStream" uid="uid://b7bnio3qa22fc" path="res://assets/629175__holizna__piano-loop-em-160-bpm.ogg" id="1_p1osb"]
+[ext_resource type="AudioStream" uid="uid://b7bnio3qa22fc" path="res://assets/reverse_piano.ogg" id="1_p1osb"]
 [ext_resource type="Script" uid="uid://b2vcc1uobqlml" path="res://bg_music.gd" id="2_5kmct"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
