@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dull33m2qhb8h"]
 
-[ext_resource type="Script" uid="uid://6a4ji04i6ai3" path="res://area_2d.gd" id="1_ite6e"]
+[ext_resource type="Script" uid="uid://6a4ji04i6ai3" path="res://World/kill_brick.gd" id="1_ite6e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n6lwf"]
 

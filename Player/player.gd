@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var speed = 128
 @export var is_clone = false
 
-var loaded = preload("res://player.tscn")
+var loaded = preload("res://Player/player.tscn")
 
 func kill() -> void:
 	var clone = loaded.instantiate()
