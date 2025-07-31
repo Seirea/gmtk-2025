@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="gmtk-2025"
-run/main_scene="uid://bme63dk02bfow"
+run/main_scene="uid://41bt41lhmqx4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+BgMusic="*res://bg_music.tscn"
 
 [display]
 
