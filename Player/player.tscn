@@ -9,6 +9,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 size = Vector2(14, 18)
 
+[sub_resource type="Animation" id="Animation_4ntmi"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_4ntmi")]
+}
+
 [sub_resource type="Animation" id="Animation_l8h54"]
 resource_name = "Jump"
 tracks/0/type = "value"
@@ -24,8 +39,8 @@ tracks/0/keys = {
 "values": [ExtResource("2_k53q1")]
 }
 
-[sub_resource type="Animation" id="Animation_4ntmi"]
-resource_name = "Idle"
+[sub_resource type="Animation" id="Animation_gwnis"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,7 +51,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_4ntmi")]
+"values": [ExtResource("2_k53q1")]
 }
 
 [sub_resource type="Animation" id="Animation_btcbx"]
@@ -54,21 +69,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("2_btcbx"), ExtResource("3_gwnis")]
-}
-
-[sub_resource type="Animation" id="Animation_gwnis"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_k53q1")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gwnis"]

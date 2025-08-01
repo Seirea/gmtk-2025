@@ -4,7 +4,8 @@ extends CharacterBody2D
 enum BodyState {
 	REAL,
 	SPECTRE,
-	SPROUT
+	SPROUT_LEFT,
+	SPROUT_RIGHT
 }
 
 enum AnimationState {
@@ -37,20 +38,29 @@ func kill() -> void:
 	
 func sprout() -> void:
 	var clone = loaded.instantiate()
-	clone.body_type = BodyState.SPROUT
+	if self.body_type == BodyState.REAL or self.body_type == BodyState.SPROUT_RIGHT:
+		clone.body_type = BodyState.SPROUT_LEFT
+	else:
+		clone.body_type = BodyState.SPROUT_RIGHT
 	clone.position = position
-	
+		
 	get_node("/root/Main/Clones").add_child(clone)
 	
 func _input(event: InputEvent) -> void:
+	if body_type == BodyState.SPECTRE:
+		# spectres cannot do anything
+		return
+	
+	# sprouts and real can make new sprouts
+	if event.is_action_pressed("sprout"):
+		sprout()
+
 	if body_type != BodyState.REAL:
 		return
 		
+	# real only	
 	if event.is_action_pressed("spectre"):
 		kill()
-		
-	if event.is_action_pressed("sprout"):
-		sprout()
 	
 	if event.is_action_pressed("hard_reset"):
 		kill()
@@ -64,7 +74,7 @@ func _physics_process(delta):
 	velocity += get_gravity() * delta
 	velocity.x = Input.get_axis("left", "right") * speed
 	
-	if body_type == BodyState.SPROUT:
+	if body_type == BodyState.SPROUT_LEFT:
 		velocity.x *= -1
 		
 	if velocity.x != 0:
