@@ -1,26 +1,56 @@
 class_name PlayerNode
 extends CharacterBody2D
 
+enum BodyState {
+	REAL,
+	SPECTRE,
+	SPROUT
+}
+
+enum AnimationState {
+	IDLE,
+	WALKING,
+	JUMPING,
+}
+
 @export var speed = 128
-@export var is_clone = false
+@export var body_type: BodyState = BodyState.REAL
 
 var loaded = preload("res://Player/player.tscn")
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer # Path to your AnimationPlayer node
+@onready var sprite: Sprite2D = $Sprite # Path to your Sprite2D node (if you have one, for flipping)
+
+var current_state: AnimationState = AnimationState.IDLE
+
+func _ready() -> void:
+	_set_animation_state(AnimationState.IDLE)
+
 func kill() -> void:
 	var clone = loaded.instantiate()
-	clone.is_clone = true
+	clone.body_type = BodyState.SPECTRE
 	clone.position = position
 
 	position = Vector2.ZERO
 	
 	get_node("/root/Main/Clones").add_child(clone)
-
+	
+func sprout() -> void:
+	var clone = loaded.instantiate()
+	clone.body_type = BodyState.SPROUT
+	clone.position = position
+	
+	get_node("/root/Main/Clones").add_child(clone)
+	
 func _input(event: InputEvent) -> void:
-	if is_clone:
+	if body_type != BodyState.REAL:
 		return
 		
-	if event.is_action_pressed("reset"):
+	if event.is_action_pressed("spectre"):
 		kill()
+		
+	if event.is_action_pressed("sprout"):
+		sprout()
 	
 	if event.is_action_pressed("hard_reset"):
 		kill()
@@ -28,13 +58,40 @@ func _input(event: InputEvent) -> void:
 	
 	
 func _physics_process(delta):
-	if is_clone:
+	if body_type == BodyState.SPECTRE:
 		return
-		
+				
 	velocity += get_gravity() * delta
 	velocity.x = Input.get_axis("left", "right") * speed
-
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = -256
+	
+	if body_type == BodyState.SPROUT:
+		velocity.x *= -1
+		
+	if velocity.x != 0:
+		sprite.flip_h = velocity.x < 0
+	
+	if is_on_floor():
+		if Input.is_action_pressed("jump"):
+			velocity.y = -256
+			_set_animation_state(AnimationState.JUMPING)
+		elif velocity.x != 0:
+			_set_animation_state(AnimationState.WALKING)
+		else:
+			_set_animation_state(AnimationState.IDLE)
 	
 	move_and_slide()
+
+func _set_animation_state(new_state: AnimationState) -> void:
+	# Only change animation if the state is different
+	if current_state == new_state:
+		return
+
+	current_state = new_state
+	
+	match current_state:
+		AnimationState.IDLE:
+			animation_player.play("Idle") # Make sure you have an animation named "Idle"
+		AnimationState.WALKING:
+			animation_player.play("Walk") # Make sure you have an animation named "Run"
+		AnimationState.JUMPING:
+			animation_player.play("Jump") # Make sure you have an animation named "Jump"

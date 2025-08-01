@@ -1,11 +1,83 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdqvhnb1j724x"]
+[gd_scene load_steps=12 format=3 uid="uid://cdqvhnb1j724x"]
 
 [ext_resource type="Script" uid="uid://l7locg7mx0bl" path="res://Player/player.gd" id="1_l8h54"]
+[ext_resource type="Texture2D" uid="uid://g0avsfauw7xo" path="res://assets/PlatformerPack/Sprites/Characters/Default/character_green_idle.png" id="2_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://o8b7yl67r6uq" path="res://assets/PlatformerPack/Sprites/Characters/Default/character_green_walk_a.png" id="2_btcbx"]
+[ext_resource type="Texture2D" uid="uid://battd66ndyat8" path="res://assets/PlatformerPack/Sprites/Characters/Default/character_green_jump.png" id="2_k53q1"]
+[ext_resource type="Texture2D" uid="uid://cxpb8re5ienu3" path="res://assets/PlatformerPack/Sprites/Characters/Default/character_green_walk_b.png" id="3_gwnis"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
-size = Vector2(8, 20)
+size = Vector2(14, 18)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
+[sub_resource type="Animation" id="Animation_l8h54"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_k53q1")]
+}
+
+[sub_resource type="Animation" id="Animation_4ntmi"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_4ntmi")]
+}
+
+[sub_resource type="Animation" id="Animation_btcbx"]
+resource_name = "Walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_btcbx"), ExtResource("3_gwnis")]
+}
+
+[sub_resource type="Animation" id="Animation_gwnis"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_k53q1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gwnis"]
+_data = {
+&"Idle": SubResource("Animation_4ntmi"),
+&"Jump": SubResource("Animation_l8h54"),
+&"RESET": SubResource("Animation_gwnis"),
+&"Walk": SubResource("Animation_btcbx")
+}
 
 [node name="PlayerBody" type="CharacterBody2D"]
 script = ExtResource("1_l8h54")
@@ -16,9 +88,14 @@ shape = SubResource("RectangleShape2D_sh265")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(2.38419e-07, 0.250002)
-scale = Vector2(8.50907, 10.25)
-mesh = SubResource("CapsuleMesh_sh265")
-
 [node name="Player" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gwnis")
+}
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, -3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_k53q1")
