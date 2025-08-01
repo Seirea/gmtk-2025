@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://csjv2my8mpytd"]
+[gd_scene load_steps=3 format=3 uid="uid://ilqyp2xckblp"]
 
 [ext_resource type="PackedScene" uid="uid://dm4rdxfmew5un" path="res://World/block.tscn" id="1_ftfcu"]
-[ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="2_5lru4"]
+[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://plate.tscn" id="2_e78ah"]
 
 [node name="Level2" type="Node2D"]
 
@@ -23,5 +23,6 @@ position = Vector2(-111, -347)
 [node name="Block9" parent="." instance=ExtResource("1_ftfcu")]
 position = Vector2(51, -283)
 
-[node name="Collectible" parent="." instance=ExtResource("2_5lru4")]
-position = Vector2(56, -4)
+[node name="Plate" parent="." instance=ExtResource("2_e78ah")]
+position = Vector2(44, 22)
+scale = Vector2(0.144435, 0.144435)

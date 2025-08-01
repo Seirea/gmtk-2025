@@ -14,8 +14,17 @@ enum AnimationState {
 	JUMPING,
 }
 
+# BIT FLAGS
+enum Flags {
+	SproutingDisabled = 1,
+	# AnotherFlag = 2^1
+	# AnotherFlag2 = 2^2 .. etc.
+}
+
 @export var speed = 128
 @export var body_type: BodyState = BodyState.REAL
+@export var flags = 0
+
 
 var loaded = preload("res://Player/player.tscn")
 
@@ -53,7 +62,8 @@ func _input(event: InputEvent) -> void:
 	
 	# sprouts and real can make new sprouts
 	if event.is_action_pressed("sprout"):
-		sprout()
+		if flags & Flags.SproutingDisabled == 0:
+			sprout()
 
 	if body_type != BodyState.REAL:
 		return

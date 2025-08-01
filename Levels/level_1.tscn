@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://lgqdcyhobpxh"]
+[gd_scene load_steps=5 format=3 uid="uid://lgqdcyhobpxh"]
 
 [ext_resource type="PackedScene" uid="uid://dm4rdxfmew5un" path="res://World/block.tscn" id="1_3hls8"]
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="3_3mhv4"]
+[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://plate.tscn" id="4_rf6l5"]
 
 [node name="Level1" type="Node2D"]
 
@@ -32,3 +33,7 @@ position = Vector2(366, -100)
 
 [node name="KillBrick" parent="." instance=ExtResource("3_3mhv4")]
 position = Vector2(-1, 115)
+
+[node name="Plate" parent="." instance=ExtResource("4_rf6l5")]
+position = Vector2(53, 12)
+scale = Vector2(0.125852, 0.125852)

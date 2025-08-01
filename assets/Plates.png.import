@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dndte1pgxcwno"
-path="res://.godot/imported/spritesheet-characters-default.png-b7965c65a58a96dcc2b40ea5a6cea02f.ctex"
+uid="uid://dr0c31kn5m5j8"
+path="res://.godot/imported/Plates.png-032d55240a989b47498b4f2329dffc7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PlatformerPack/Spritesheets/spritesheet-characters-default.png"
-dest_files=["res://.godot/imported/spritesheet-characters-default.png-b7965c65a58a96dcc2b40ea5a6cea02f.ctex"]
+source_file="res://assets/Plates.png"
+dest_files=["res://.godot/imported/Plates.png-032d55240a989b47498b4f2329dffc7a.ctex"]
 
 [params]
 
