@@ -1,0 +1,19 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dodaqulg6wo0p"]
+
+[ext_resource type="Texture2D" uid="uid://hsnm5347r7ja" path="res://assets/Terrain.png" id="1_8rp5s"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0yij4"]
+texture = ExtResource("1_8rp5s")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(15.9773, -3.00685, -9.23407, -3.00685, -10.189, 0.0989208, -10.2879, 10.2879, -8.50732, 14.2448, 8.80408, 14.7394, 16.0254, 15.4319)
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.0288, -2.98944, 16.0166, -2.98944, 15.9265, 14.4427, 6.82564, 12.761, -0.593534, 12.0685, -9.49654, 13.5524, -16.1243, 12.4642)
+4:0/size_in_atlas = Vector2i(2, 2)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.9897, -3.05311, 3.93382, -2.9944, -0.296768, 12.0685, -12.1674, 12.2664, -15.9265, 14.047)
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/4 = SubResource("TileSetAtlasSource_0yij4")

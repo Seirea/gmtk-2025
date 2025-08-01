@@ -33,4 +33,4 @@ func _on_body_exited(body: Node2D) -> void:
 		update_frame()
 		if plate_type == PlateType.AntiSprout:
 			body.flags &= ~PlayerNode.Flags.SproutingDisabled
-		plate_on.emit()
+		plate_off.emit()

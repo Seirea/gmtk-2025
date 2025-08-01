@@ -30,6 +30,7 @@ var loaded = preload("res://Player/player.tscn")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer # Path to your AnimationPlayer node
 @onready var sprite: Sprite2D = $Sprite # Path to your Sprite2D node (if you have one, for flipping)
+@onready var camera: Camera2D = $Camera2D
 
 var current_state: AnimationState = AnimationState.IDLE
 
@@ -64,6 +65,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("sprout"):
 		if flags & Flags.SproutingDisabled == 0:
 			sprout()
+		else:
+			camera.add_trauma(0.5)
 
 	if body_type != BodyState.REAL:
 		return

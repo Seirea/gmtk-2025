@@ -6,10 +6,10 @@
 
 [node name="Main" type="Node2D"]
 
+[node name="CurrentLevel" type="Node2D" parent="."]
+script = ExtResource("3_1bvp3")
+
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 
 [node name="Clones" type="Node2D" parent="."]
 script = ExtResource("3_h2yge")
-
-[node name="CurrentLevel" type="Node2D" parent="."]
-script = ExtResource("3_1bvp3")

@@ -1,13 +1,25 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdqvhnb1j724x"]
+[gd_scene load_steps=14 format=3 uid="uid://cdqvhnb1j724x"]
 
 [ext_resource type="Script" uid="uid://l7locg7mx0bl" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Texture2D" uid="uid://g0avsfauw7xo" path="res://assets/PlatformerPack/Sprites/Characters/Default/character_green_idle.png" id="2_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://o8b7yl67r6uq" path="res://assets/PlatformerPack/Sprites/Characters/Default/character_green_walk_a.png" id="2_btcbx"]
+[ext_resource type="Script" uid="uid://c1xtec58ph6qk" path="res://Player/camera.gd" id="2_fhl08"]
 [ext_resource type="Texture2D" uid="uid://battd66ndyat8" path="res://assets/PlatformerPack/Sprites/Characters/Default/character_green_jump.png" id="2_k53q1"]
 [ext_resource type="Texture2D" uid="uid://cxpb8re5ienu3" path="res://assets/PlatformerPack/Sprites/Characters/Default/character_green_walk_b.png" id="3_gwnis"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 size = Vector2(14, 18)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fhl08"]
+noise_type = 4
+fractal_type = 3
+fractal_octaves = 4
+fractal_lacunarity = 1.0
+fractal_gain = 1.0
+fractal_weighted_strength = 0.68
+domain_warp_enabled = true
+domain_warp_type = 1
+metadata/_preview_in_3d_space_ = true
 
 [sub_resource type="Animation" id="Animation_4ntmi"]
 resource_name = "Idle"
@@ -87,6 +99,8 @@ shape = SubResource("RectangleShape2D_sh265")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+script = ExtResource("2_fhl08")
+noise = SubResource("FastNoiseLite_fhl08")
 
 [node name="Player" type="Node2D" parent="."]
 

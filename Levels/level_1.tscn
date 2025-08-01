@@ -1,32 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://lgqdcyhobpxh"]
+[gd_scene load_steps=5 format=4 uid="uid://lgqdcyhobpxh"]
 
-[ext_resource type="PackedScene" uid="uid://dm4rdxfmew5un" path="res://World/block.tscn" id="1_3hls8"]
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="3_3mhv4"]
 [ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://plate.tscn" id="4_rf6l5"]
+[ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="4_syshm"]
 
 [node name="Level1" type="Node2D"]
-
-[node name="Block2" parent="." instance=ExtResource("1_3hls8")]
-position = Vector2(151.426, -8.109)
-
-[node name="Block" parent="." instance=ExtResource("1_3hls8")]
-position = Vector2(18, 14)
-
-[node name="Block3" parent="." instance=ExtResource("1_3hls8")]
-position = Vector2(306, -42)
-
-[node name="Block4" parent="." instance=ExtResource("1_3hls8")]
-position = Vector2(309, 27)
-
-[node name="Block5" parent="." instance=ExtResource("1_3hls8")]
-position = Vector2(11, -42)
-
-[node name="Block6" parent="." instance=ExtResource("1_3hls8")]
-position = Vector2(-126, -12)
-
-[node name="Block7" parent="." instance=ExtResource("1_3hls8")]
-position = Vector2(221, -23)
 
 [node name="Collectible" parent="." instance=ExtResource("2_dilhk")]
 position = Vector2(366, -100)
@@ -34,6 +13,11 @@ position = Vector2(366, -100)
 [node name="KillBrick" parent="." instance=ExtResource("3_3mhv4")]
 position = Vector2(-1, 115)
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAKAP3/BAAAAAAAAAAMAP3/BAACAAAAAAAOAP3/BAACAAAAAAAQAP3/BAACAAAAAAASAP3/BAAEAAAAAAD9/wEABAAAAAAAAAD//wEABAACAAAAAAABAAEABAACAAAAAAADAAEABAACAAAAAAAFAAEABAAEAAAAAAAJAP//BAACAAAAAAALAP//BAACAAAAAAANAP//BAAEAAAAAAD9//3/BAAAAAAAAAD///3/BAACAAAAAAABAP3/BAACAAAAAAAXAAEABAAEAAAAAAAVAAEABAACAAAAAAATAAEABAACAAAAAAARAAEABAACAAAAAAAPAAEABAAAAAAAAAAHAP//BAAAAAAAAAADAP3/BAAEAAAAAAAWAPv/BAACAAAAAAAYAPv/BAAEAAAAAAAUAPv/BAAAAAAAAAA=")
+tile_set = ExtResource("4_syshm")
+
 [node name="Plate" parent="." instance=ExtResource("4_rf6l5")]
-position = Vector2(53, 12)
+position = Vector2(33, 18)
 scale = Vector2(0.125852, 0.125852)
