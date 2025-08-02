@@ -19,6 +19,8 @@ enum Flags {
 @export var body_type: BodyState = BodyState.REAL
 @export var flags = 0
 
+const left_sprout_frames: SpriteFrames = preload("res://Player/SPROUT_LEFT_FRAMES.tres")
+const right_sprout_frames: SpriteFrames = preload("res://Player/SPROUT_RIGHT_FRAMES.tres")
 
 var loaded_player = preload("res://Player/player.tscn")
 var spectre = preload("res://Player/spectre_node.tscn")
@@ -37,16 +39,15 @@ func sprout() -> void:
 	
 	if self.body_type == BodyState.REAL or self.body_type == BodyState.SPROUT_RIGHT:
 		clone.body_type = BodyState.SPROUT_LEFT
+		clone.get_node("AnimatedSprite2D").sprite_frames = left_sprout_frames
 	else:
 		clone.body_type = BodyState.SPROUT_RIGHT
+		clone.get_node("AnimatedSprite2D").sprite_frames = right_sprout_frames
 	clone.position = position - Vector2($CollisionShape2D.shape.size.x, 0)
 		
 	get_node("/root/Main/Clones").add_child(clone)
 	
 func _input(event: InputEvent) -> void:
-	if body_type == BodyState.SPECTRE:
-		# spectres cannot do anything
-		return
 	
 	# sprouts and real can make new sprouts
 	if event.is_action_pressed("sprout"):
@@ -67,10 +68,7 @@ func _input(event: InputEvent) -> void:
 		get_node("/root/Main/Clones").clear_all_clones();
 	
 	
-func _physics_process(delta):
-	if body_type == BodyState.SPECTRE:
-		return
-				
+func _physics_process(delta):				
 	velocity += get_gravity() * delta
 	velocity.x = Input.get_axis("left", "right") * speed
 	

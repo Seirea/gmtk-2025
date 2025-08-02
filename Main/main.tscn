@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://che0d3y6ysfc0"]
+
+[ext_resource type="Script" uid="uid://cfwen0qatpiuw" path="res://Main/current_level.gd" id="1_k3v36"]
+[ext_resource type="Texture2D" uid="uid://ca0e8uoxb2l3d" path="res://assets/world/clouds.png" id="1_liyct"]
+[ext_resource type="PackedScene" uid="uid://cdqvhnb1j724x" path="res://Player/player.tscn" id="2_liyct"]
+[ext_resource type="PackedScene" uid="uid://cj0cjbkb3qgr4" path="res://Main/global_camera.tscn" id="3_ib3t1"]
+[ext_resource type="Script" uid="uid://c1xtec58ph6qk" path="res://Player/camera.gd" id="4_f6fdm"]
+[ext_resource type="Script" uid="uid://byrcjam3g3gd" path="res://World/clones.gd" id="5_rj11h"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lquwl"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Clouds" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_liyct")
+
+[node name="CurrentLevel" type="Node2D" parent="."]
+script = ExtResource("1_k3v36")
+
+[node name="Player" parent="." instance=ExtResource("2_liyct")]
+
+[node name="GlobalCamera" parent="Player" instance=ExtResource("3_ib3t1")]
+unique_name_in_owner = true
+zoom = Vector2(5, 5)
+script = ExtResource("4_f6fdm")
+noise = SubResource("FastNoiseLite_lquwl")
+
+[node name="Clones" type="Node2D" parent="."]
+script = ExtResource("5_rj11h")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b7n633vhp7b16"]
 
-[ext_resource type="Script" uid="uid://ce4abo62j2mro" path="res://plate.gd" id="1_uw33f"]
+[ext_resource type="Script" uid="uid://ce4abo62j2mro" path="res://World/plate.gd" id="1_uw33f"]
 [ext_resource type="Texture2D" uid="uid://v70fhc0lhom4" path="res://assets/Plates.png" id="2_g4jty"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uw33f"]

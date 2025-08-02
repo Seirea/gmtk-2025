@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="3_3mhv4"]
-[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://plate.tscn" id="4_rf6l5"]
+[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="4_rf6l5"]
 [ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="4_syshm"]
 [ext_resource type="Script" uid="uid://01ioswa0c3jb" path="res://Levels/static_body_2d.gd" id="5_syshm"]
 

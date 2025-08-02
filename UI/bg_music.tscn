@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bipacar7nvbap"]
+
+[ext_resource type="AudioStream" uid="uid://b7bnio3qa22fc" path="res://assets/reverse_piano.ogg" id="1_lh2vy"]
+[ext_resource type="Script" uid="uid://b2vcc1uobqlml" path="res://UI/bg_music.gd" id="2_vp1vh"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_lh2vy")
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_vp1vh")

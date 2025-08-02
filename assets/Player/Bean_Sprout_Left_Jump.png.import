@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hsnm5347r7ja"
-path="res://.godot/imported/Terrain.png-6e7bc7903f73e52b5ce947552537fc7a.ctex"
+uid="uid://bxt1mky20ekxx"
+path="res://.godot/imported/Bean_Sprout_Left_Jump.png-daaf9c25bd3bafeeb63e114804e124a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Terrain.png"
-dest_files=["res://.godot/imported/Terrain.png-6e7bc7903f73e52b5ce947552537fc7a.ctex"]
+source_file="res://assets/Player/Bean_Sprout_Left_Jump.png"
+dest_files=["res://.godot/imported/Bean_Sprout_Left_Jump.png-daaf9c25bd3bafeeb63e114804e124a5.ctex"]
 
 [params]
 
