@@ -15,5 +15,4 @@ func next_level() -> void:
 	get_node("../Player").position = Vector2.ZERO
 	current_level += 1
 	
-	
 	load_current_level()

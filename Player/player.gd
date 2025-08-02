@@ -8,12 +8,6 @@ enum BodyState {
 	SPROUT_RIGHT
 }
 
-enum AnimationState {
-	IDLE,
-	WALKING,
-	JUMPING,
-}
-
 # BIT FLAGS
 enum Flags {
 	SproutingDisabled = 1,
@@ -26,33 +20,26 @@ enum Flags {
 @export var flags = 0
 
 
-var loaded = preload("res://Player/player.tscn")
+var loaded_player = preload("res://Player/player.tscn")
+var spectre = preload("res://Player/spectre_node.tscn")
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer # Path to your AnimationPlayer node
-@onready var sprite: Sprite2D = $Sprite # Path to your Sprite2D node (if you have one, for flipping)
-@onready var camera: Camera2D = $Camera2D
-
-var current_state: AnimationState = AnimationState.IDLE
-
-func _ready() -> void:
-	_set_animation_state(AnimationState.IDLE)
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D # Path to your Sprite2D node (if you have one, for flipping)
 
 func kill() -> void:
-	var clone = loaded.instantiate()
-	clone.body_type = BodyState.SPECTRE
-	clone.position = position
-
+	var created = spectre.instantiate()
+	created.position = position
 	position = Vector2.ZERO
 	
-	get_node("/root/Main/Clones").add_child(clone)
+	get_node("/root/Main/Clones").add_child(created)
 	
 func sprout() -> void:
-	var clone = loaded.instantiate()
+	var clone = loaded_player.instantiate()
+	
 	if self.body_type == BodyState.REAL or self.body_type == BodyState.SPROUT_RIGHT:
 		clone.body_type = BodyState.SPROUT_LEFT
 	else:
 		clone.body_type = BodyState.SPROUT_RIGHT
-	clone.position = position
+	clone.position = position - Vector2($CollisionShape2D.shape.size.x, 0)
 		
 	get_node("/root/Main/Clones").add_child(clone)
 	
@@ -65,8 +52,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("sprout"):
 		if flags & Flags.SproutingDisabled == 0:
 			sprout()
-		else:
-			camera.add_trauma(0.5)
+		elif body_type == BodyState.REAL:
+			get_node("%GlobalCamera").add_trauma(0.5)
 
 	if body_type != BodyState.REAL:
 		return
@@ -96,25 +83,18 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_pressed("jump"):
 			velocity.y = -256
-			_set_animation_state(AnimationState.JUMPING)
+			_set_animation_state("Jump")
 		elif velocity.x != 0:
-			_set_animation_state(AnimationState.WALKING)
+			_set_animation_state("Walk")
 		else:
-			_set_animation_state(AnimationState.IDLE)
+			_set_animation_state("Idle")
 	
 	move_and_slide()
 
-func _set_animation_state(new_state: AnimationState) -> void:
+func _set_animation_state(new_state: StringName) -> void:
 	# Only change animation if the state is different
-	if current_state == new_state:
+	if sprite.animation == new_state:
 		return
 
-	current_state = new_state
-	
-	match current_state:
-		AnimationState.IDLE:
-			animation_player.play("Idle") # Make sure you have an animation named "Idle"
-		AnimationState.WALKING:
-			animation_player.play("Walk") # Make sure you have an animation named "Run"
-		AnimationState.JUMPING:
-			animation_player.play("Jump") # Make sure you have an animation named "Jump"
+	sprite.animation = new_state
+	sprite.play()

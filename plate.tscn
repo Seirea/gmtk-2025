@@ -1,38 +1,38 @@
 [gd_scene load_steps=8 format=3 uid="uid://b7n633vhp7b16"]
 
 [ext_resource type="Script" uid="uid://ce4abo62j2mro" path="res://plate.gd" id="1_uw33f"]
-[ext_resource type="Texture2D" uid="uid://dr0c31kn5m5j8" path="res://assets/Plates.png" id="2_g4jty"]
+[ext_resource type="Texture2D" uid="uid://v70fhc0lhom4" path="res://assets/Plates.png" id="2_g4jty"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw33f"]
+atlas = ExtResource("2_g4jty")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4jty"]
+atlas = ExtResource("2_g4jty")
+region = Rect2(0, 32, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcf13"]
 atlas = ExtResource("2_g4jty")
-region = Rect2(0, 0, 256, 128)
+region = Rect2(0, 64, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffgcv"]
 atlas = ExtResource("2_g4jty")
-region = Rect2(0, 128, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_072o2"]
-atlas = ExtResource("2_g4jty")
-region = Rect2(0, 256, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nq5sa"]
-atlas = ExtResource("2_g4jty")
-region = Rect2(0, 384, 256, 128)
+region = Rect2(0, 96, 64, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3bkoa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_uw33f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4jty")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jcf13")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ffgcv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_072o2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nq5sa")
 }],
 "loop": true,
 "name": &"default",
@@ -44,10 +44,12 @@ script = ExtResource("1_uw33f")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(3.54687, 3.85937)
 sprite_frames = SubResource("SpriteFrames_3bkoa")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-2, 2)
+position = Vector2(0, 4)
 polygon = PackedVector2Array(93, -40, 72, -46, 48, -49, -38, -50, -65, -47, -90, -40, -90, -27, 93, -28)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

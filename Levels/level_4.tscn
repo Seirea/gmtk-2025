@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ilqyp2xckblp"]
+[gd_scene load_steps=3 format=3 uid="uid://nm1yse7ag2fy"]
 
 [ext_resource type="PackedScene" uid="uid://dm4rdxfmew5un" path="res://World/block.tscn" id="1_ftfcu"]
 [ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://plate.tscn" id="2_e78ah"]
 
-[node name="Level2" type="Node2D"]
+[node name="Level4" type="Node2D"]
 
 [node name="Block" parent="." instance=ExtResource("1_ftfcu")]
 position = Vector2(1, 23)

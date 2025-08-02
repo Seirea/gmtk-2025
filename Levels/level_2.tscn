@@ -1,30 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs6i2iib4j5kk"]
+[gd_scene load_steps=8 format=4 uid="uid://bs6i2iib4j5kk"]
 
-[ext_resource type="PackedScene" uid="uid://dm4rdxfmew5un" path="res://World/block.tscn" id="1_ll1bl"]
+[ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="2_bcgyv"]
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="2_kbe2v"]
+[ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="3_fbld2"]
+[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://plate.tscn" id="4_s275v"]
+[ext_resource type="Script" uid="uid://01ioswa0c3jb" path="res://Levels/static_body_2d.gd" id="5_pml6m"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_bcgyv"]
+size = Vector2(5, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbld2"]
+size = Vector2(4.006, 100.453)
 
 [node name="Level2" type="Node2D"]
 
-[node name="Block" parent="." instance=ExtResource("1_ll1bl")]
-position = Vector2(15, 16)
+[node name="KillBrick" parent="." instance=ExtResource("2_bcgyv")]
+position = Vector2(-1, 115)
 
-[node name="Block5" parent="." instance=ExtResource("1_ll1bl")]
-position = Vector2(8, -40)
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD//wEABAACAAAAAAABAAEABAACAAAAAAADAAEABAACAAAAAAAFAAEABAACAAAAAAAHAAEABAACAAAAAAAJAAEABAACAAAAAAALAAEABAACAAAAAAANAAEABAAEAAAAAAD9/wEABAACAAAAAAD7/wEABAACAAAAAAD5/wEABAACAAAAAAD3/wEABAAAAAAAAAA=")
+tile_set = ExtResource("3_fbld2")
 
-[node name="Block6" parent="." instance=ExtResource("1_ll1bl")]
-position = Vector2(-157, -13)
+[node name="Plate" parent="." instance=ExtResource("4_s275v")]
+position = Vector2(60, 17)
+scale = Vector2(0.125852, 0.125852)
+plate_type = 1
 
-[node name="Block7" parent="." instance=ExtResource("1_ll1bl")]
-position = Vector2(174, -53)
+[node name="CoinArea" parent="." instance=ExtResource("2_kbe2v")]
+position = Vector2(-90, -35)
 
-[node name="Block8" parent="." instance=ExtResource("1_ll1bl")]
-position = Vector2(-242, -91)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(187.084, -10)
+scale = Vector2(1, 1.553)
 
-[node name="Block9" parent="." instance=ExtResource("1_ll1bl")]
-position = Vector2(287, -84)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+mesh = SubResource("QuadMesh_bcgyv")
 
-[node name="Block10" parent="." instance=ExtResource("1_ll1bl")]
-position = Vector2(403, -127)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_fbld2")
 
-[node name="Collectible" parent="." instance=ExtResource("2_kbe2v")]
-position = Vector2(-291, -121)
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-46.806, -10)
+scale = Vector2(1, 1.553)
+script = ExtResource("5_pml6m")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2"]
+mesh = SubResource("QuadMesh_bcgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_fbld2")
+
+[node name="Roof" type="StaticBody2D" parent="."]
+position = Vector2(100, -90)
+rotation = 1.5708
+scale = Vector2(1, 4)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Roof"]
+mesh = SubResource("QuadMesh_bcgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
+shape = SubResource("RectangleShape2D_fbld2")
+
+[connection signal="depressed" from="Plate" to="StaticBody2D2" method="_on_plate_depressed"]
+[connection signal="pressed" from="Plate" to="StaticBody2D2" method="_on_plate_pressed"]

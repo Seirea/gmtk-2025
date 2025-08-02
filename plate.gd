@@ -3,9 +3,8 @@ extends Area2D
 enum PlateType { AntiSprout, Activator }
 
 @export var plate_type: PlateType = PlateType.AntiSprout
-
-signal plate_on
-signal plate_off
+signal pressed
+signal depressed
 
 const sound = preload("res://assets/pressure-plate.wav")
 
@@ -25,7 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 		update_frame()
 		if plate_type == PlateType.AntiSprout:
 			body.flags |= PlayerNode.Flags.SproutingDisabled
-		plate_on.emit()
+		pressed.emit()
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is PlayerNode:
@@ -33,4 +32,4 @@ func _on_body_exited(body: Node2D) -> void:
 		update_frame()
 		if plate_type == PlateType.AntiSprout:
 			body.flags &= ~PlayerNode.Flags.SproutingDisabled
-		plate_off.emit()
+		depressed.emit()

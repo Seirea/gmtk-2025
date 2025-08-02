@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpit37e3uchcq"]
+
+[ext_resource type="Texture2D" uid="uid://54ifau8060tg" path="res://assets/Player/Spectre.png" id="1_3w46w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mruax"]
+size = Vector2(14, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w46w"]
+atlas = ExtResource("1_3w46w")
+region = Rect2(0, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5fpj"]
+atlas = ExtResource("1_3w46w")
+region = Rect2(42, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dy6v"]
+atlas = ExtResource("1_3w46w")
+region = Rect2(84, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mruax"]
+atlas = ExtResource("1_3w46w")
+region = Rect2(0, 42, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovc1h"]
+atlas = ExtResource("1_3w46w")
+region = Rect2(42, 42, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrny2"]
+atlas = ExtResource("1_3w46w")
+region = Rect2(84, 42, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkty6"]
+atlas = ExtResource("1_3w46w")
+region = Rect2(0, 84, 42, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ovc1h"]
+resource_name = "PlayerFrames"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w46w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5fpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dy6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mruax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovc1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrny2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkty6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[node name="SpectreNode" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mruax")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -3)
+scale = Vector2(0.671875, 0.671875)
+sprite_frames = SubResource("SpriteFrames_ovc1h")
+animation = &"Idle"
+autoplay = "Idle"

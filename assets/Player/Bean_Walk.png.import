@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v70fhc0lhom4"
-path="res://.godot/imported/Plates.png-032d55240a989b47498b4f2329dffc7a.ctex"
+uid="uid://2rd5c070ssjv"
+path="res://.godot/imported/Bean_Walk.png-f8e8f8a3e44923c1e1240d4f2583ddbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Plates.png"
-dest_files=["res://.godot/imported/Plates.png-032d55240a989b47498b4f2329dffc7a.ctex"]
+source_file="res://assets/Player/Bean_Walk.png"
+dest_files=["res://.godot/imported/Bean_Walk.png-f8e8f8a3e44923c1e1240d4f2583ddbb.ctex"]
 
 [params]
 
