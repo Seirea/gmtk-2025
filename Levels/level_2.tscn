@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://bs6i2iib4j5kk"]
+[gd_scene load_steps=8 format=4 uid="uid://bs6i2iib4j5kk"]
 
 [ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="2_bcgyv"]
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="2_kbe2v"]
 [ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="3_fbld2"]
 [ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="4_s275v"]
 [ext_resource type="Script" uid="uid://01ioswa0c3jb" path="res://Levels/static_body_2d.gd" id="5_pml6m"]
-[ext_resource type="TileSet" uid="uid://i1wglt1ucwmr" path="res://woodset.tres" id="6_fbld2"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_bcgyv"]
 size = Vector2(5, 100)
@@ -30,6 +29,16 @@ plate_type = 1
 [node name="CoinArea" parent="." instance=ExtResource("2_kbe2v")]
 position = Vector2(7, -39)
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(187.084, -10)
+scale = Vector2(1, 1.553)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+mesh = SubResource("QuadMesh_bcgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_fbld2")
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(-46.806, -10)
 scale = Vector2(1, 1.553)
@@ -41,9 +50,16 @@ mesh = SubResource("QuadMesh_bcgyv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("RectangleShape2D_fbld2")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAGAPn/AAABAAAAAAAFAPn/AAABAAAAAAAEAPn/AAABAAAAAAADAPn/AAABAAAAAAACAPn/AAABAAAAAAABAPn/AAABAAAAAAAAAPn/AAABAAAAAAD///n/AAABAAAAAAD+//n/AAABAAAAAAD9//n/AAABAAAAAAAJAPr/AAABAAAAAGAJAPv/AAABAAAAAGAJAPz/AAABAAAAAGAJAP3/AAABAAAAAGAJAP7/AAABAAAAAGAJAP//AAABAAAAAGAJAAAAAAABAAAAAGAJAPn/AAABAAAAAAAIAPn/AAABAAAAAAAHAPn/AAABAAAAAAA=")
-tile_set = ExtResource("6_fbld2")
+[node name="Roof" type="StaticBody2D" parent="."]
+position = Vector2(100, -90)
+rotation = 1.5708
+scale = Vector2(1, 4)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Roof"]
+mesh = SubResource("QuadMesh_bcgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
+shape = SubResource("RectangleShape2D_fbld2")
 
 [connection signal="depressed" from="Plate" to="StaticBody2D2" method="_on_plate_depressed"]
 [connection signal="pressed" from="Plate" to="StaticBody2D2" method="_on_plate_pressed"]
