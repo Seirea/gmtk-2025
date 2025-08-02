@@ -24,11 +24,10 @@ tile_set = ExtResource("3_fbld2")
 
 [node name="Plate" parent="." instance=ExtResource("4_s275v")]
 position = Vector2(60, 17)
-scale = Vector2(0.125852, 0.125852)
 plate_type = 1
 
 [node name="CoinArea" parent="." instance=ExtResource("2_kbe2v")]
-position = Vector2(-90, -35)
+position = Vector2(7, -39)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(187.084, -10)

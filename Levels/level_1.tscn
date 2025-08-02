@@ -15,7 +15,7 @@ size = Vector2(4.006, 100.453)
 [node name="Level1" type="Node2D"]
 
 [node name="Collectible" parent="." instance=ExtResource("2_dilhk")]
-position = Vector2(245, -14)
+position = Vector2(143, -25)
 
 [node name="KillBrick" parent="." instance=ExtResource("3_3mhv4")]
 position = Vector2(-1, 115)
@@ -27,7 +27,6 @@ tile_set = ExtResource("4_syshm")
 
 [node name="Plate" parent="." instance=ExtResource("4_rf6l5")]
 position = Vector2(60, 17)
-scale = Vector2(0.125852, 0.125852)
 plate_type = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

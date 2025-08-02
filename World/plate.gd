@@ -8,28 +8,39 @@ signal depressed
 
 const sound = preload("res://assets/pressure-plate.wav")
 
-var is_pressed = false
+var body_count = 0
 
 func update_frame() -> void:
-	$Sprite2D.frame = int(is_pressed) + (2 if plate_type == PlateType.Activator else 0)
+	$Sprite2D.frame = int(body_count > 0) + (2 if plate_type == PlateType.Activator else 0)
 
 func _ready() -> void:
 	if plate_type == PlateType.Activator:
 		$Sprite2D.frame = 2
 
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerNode:
 		SoundService.play_stream(sound)
-		is_pressed = true
-		update_frame()
 		if plate_type == PlateType.AntiSprout:
 			body.flags |= PlayerNode.Flags.SproutingDisabled
-		pressed.emit()
+			
+		if body_count == 0:
+			pressed.emit()
+		body_count += 1
+		
+		print(self, "| count: ", body_count)
+		update_frame()
 
+
+		
 func _on_body_exited(body: Node2D) -> void:
 	if body is PlayerNode:
-		is_pressed = false
-		update_frame()
 		if plate_type == PlateType.AntiSprout:
 			body.flags &= ~PlayerNode.Flags.SproutingDisabled
-		depressed.emit()
+			
+		body_count -= 1
+		if body_count == 0:
+			depressed.emit()	
+			
+		print(self, "| count: ", body_count)
+		update_frame()

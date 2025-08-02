@@ -24,7 +24,7 @@ script = ExtResource("1_k3v36")
 
 [node name="GlobalCamera" parent="Player" instance=ExtResource("3_ib3t1")]
 unique_name_in_owner = true
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 script = ExtResource("4_f6fdm")
 noise = SubResource("FastNoiseLite_lquwl")
 

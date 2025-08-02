@@ -45,12 +45,12 @@ script = ExtResource("1_uw33f")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -1.90735e-06)
-scale = Vector2(3.54687, 3.85937)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_3bkoa")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0, 4)
-polygon = PackedVector2Array(93, -40, 72, -46, 48, -49, -38, -50, -65, -47, -90, -40, -90, -27, 93, -28)
+position = Vector2(67, 20)
+polygon = PackedVector2Array(-54, -23, -61, -26, -73, -26, -80, -23)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

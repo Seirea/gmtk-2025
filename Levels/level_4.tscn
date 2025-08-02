@@ -1,28 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://nm1yse7ag2fy"]
+[gd_scene load_steps=3 format=4 uid="uid://nm1yse7ag2fy"]
 
-[ext_resource type="PackedScene" uid="uid://dm4rdxfmew5un" path="res://World/block.tscn" id="1_ftfcu"]
+[ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="1_ftfcu"]
 [ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="2_e78ah"]
 
 [node name="Level4" type="Node2D"]
 
-[node name="Block" parent="." instance=ExtResource("1_ftfcu")]
-position = Vector2(1, 23)
-
-[node name="Block5" parent="." instance=ExtResource("1_ftfcu")]
-position = Vector2(-87, -44)
-
-[node name="Block6" parent="." instance=ExtResource("1_ftfcu")]
-position = Vector2(50, -116)
-
-[node name="Block7" parent="." instance=ExtResource("1_ftfcu")]
-position = Vector2(-102, -184)
-
-[node name="Block8" parent="." instance=ExtResource("1_ftfcu")]
-position = Vector2(-111, -347)
-
-[node name="Block9" parent="." instance=ExtResource("1_ftfcu")]
-position = Vector2(51, -283)
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAEABAACAAAAAAD+/wEABAAAAAAAAAACAAEABAAEAAAAAAD+/wQABAAEAAAAAAD8/wQABAACAAAAAAD6/wQABAAAAAAAAAACAAQABAAAAAAAAAAEAAQABAACAAAAAAAGAAQABAAEAAAAAAD+/wcABAAAAAAAAAAAAAcABAACAAAAAAACAAcABAAEAAAAAAACAAkABAAAAAAAAAAEAAkABAACAAAAAAAGAAkABAACAAAAAAAIAAkABAAEAAAAAAALAAYABAAAAAAAAAANAAYABAACAAAAAAAPAAYABAAEAAAAAAA=")
+tile_set = ExtResource("1_ftfcu")
 
 [node name="Plate" parent="." instance=ExtResource("2_e78ah")]
-position = Vector2(44, 22)
-scale = Vector2(0.144435, 0.144435)
+position = Vector2(0, 18)
+
+[node name="Plate2" parent="." instance=ExtResource("2_e78ah")]
+position = Vector2(-62, 65)
+plate_type = 1
+
+[node name="Plate3" parent="." instance=ExtResource("2_e78ah")]
+position = Vector2(3, 112)
+plate_type = 1

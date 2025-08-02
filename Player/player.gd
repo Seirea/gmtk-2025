@@ -80,7 +80,7 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		if Input.is_action_pressed("jump"):
-			velocity.y = -256
+			velocity.y = -324
 			_set_animation_state("Jump")
 		elif velocity.x != 0:
 			_set_animation_state("Walk")
@@ -88,6 +88,7 @@ func _physics_process(delta):
 			_set_animation_state("Idle")
 	
 	move_and_slide()
+	
 
 func _set_animation_state(new_state: StringName) -> void:
 	# Only change animation if the state is different
