@@ -31,11 +31,11 @@ func meow() -> void:
 func _ready() -> void:
 	$Text1.show()
 	
-	await go_next(4)
+	await go_next(6)
 	$Text1.hide()
 	$Text2.show()
 	
-	await go_next(4)
+	await go_next(6)
 	$Text2.hide()
 	$EvilLentil.show()
 	$LentilDialogue.show()
@@ -61,23 +61,23 @@ func _ready() -> void:
 	$LentilDialogue.hide()
 	$Text3.show()
 	
-	await go_next(4)
+	await go_next(6)
 	$Text3.hide()
 	$Text4.show()
 
-	await go_next(4)
+	await go_next(6)
 	$Text4.hide()
 	$Text5.show()
 
-	await go_next(4)
+	await go_next(6)
 	$Text5.hide()
 	$Text6.show()
 
-	await go_next(4)
+	await go_next(6)
 	$Text6.hide()
 	$Text7.show()
 
-	await go_next(4)
+	await go_next(6)
 	$Text7.hide()
 	
 	get_tree().change_scene_to_file("res://Main/main.tscn")
