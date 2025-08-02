@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://bigwt5nryf0vp"]
+[gd_scene load_steps=29 format=3 uid="uid://bigwt5nryf0vp"]
 
 [ext_resource type="Script" uid="uid://u8hmc1iwft00" path="res://exposition.gd" id="1_nc0m0"]
+[ext_resource type="Texture2D" uid="uid://byv1v3kdn0n1f" path="res://assets/Sky BG.png" id="2_1jc3m"]
 [ext_resource type="Texture2D" uid="uid://cv6r5hvognknd" path="res://assets/Beantopia.png" id="2_imb4w"]
 [ext_resource type="Texture2D" uid="uid://bqef60gka5t56" path="res://assets/Explosion.png" id="3_4rug3"]
 [ext_resource type="Texture2D" uid="uid://cucacp2ewyxr5" path="res://assets/Evil Lentil.png" id="4_1jc3m"]
@@ -148,10 +149,16 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_4rug3"]
 font = ExtResource("6_imb4w")
 font_size = 12
+font_color = Color(0, 0, 0, 1)
 
 [node name="Exposition" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_nc0m0")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(967.556, 543.75)
+scale = Vector2(4.83778, 4.83778)
+texture = ExtResource("2_1jc3m")
 
 [node name="Beantopia" type="AnimatedSprite2D" parent="."]
 position = Vector2(1319, 650)
