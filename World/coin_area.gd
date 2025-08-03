@@ -8,7 +8,7 @@ func _on_body_entered(body: Node2D) -> void:
 		SoundService.play_stream(sound)
 		
 		if is_final_star:
-			get_tree().change_scene_to_file("res://ending.tscn")
+			get_tree().change_scene_to_file.call_deferred("res://ending.tscn")
 
 			queue_free.call_deferred()
 			return

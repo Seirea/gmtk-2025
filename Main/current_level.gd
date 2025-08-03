@@ -10,8 +10,6 @@ func load_current_level() -> void:
 	var loaded: PackedScene = load("res://Levels/level_%d.tscn" % current_level) 
 	add_child(loaded.instantiate())
 
-
-
 func _ready() -> void:
 	load_current_level()	
 
