@@ -4,11 +4,11 @@
 [ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="1_o1lje"]
 [ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="2_5lru4"]
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="3_ej5lj"]
+[ext_resource type="Script" uid="uid://c6p4npwhcqw4p" path="res://Levels/door_controller_3.gd" id="4_4gbxj"]
 [ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="4_absw3"]
-[ext_resource type="Script" uid="uid://dv8k7m8v0v3cy" path="res://Levels/door_controller_10.gd" id="4_wnufy"]
 [ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="7_4gbxj"]
 
-[node name="Level10" type="Node2D"]
+[node name="Level8" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAABAAEAAAACAAAAAAD//wEAAAAAAAAAAAABAP3/AAACAAAAAAD///3/AAACAAAAAAD9//3/AAAAAAQAAGD9////AAACAAAAAGD7/wUAAAACAAAAAED7/wcAAAACAAAAAEAFAAUAAAACAAAAAEAFAAcAAAACAAAAAED7/wkAAAAAAAQAADD9/wkAAAACAAAAAAADAAkAAAACAAAAAAAFAAkAAAAAAAQAAFD9/wEAAAAAAAQAAFD7/wEAAAAAAAQAAGD7/wMAAAACAAAAAGAFAAMAAAACAAAAAGD//wkAAAACAAAAAAAAAAcAAAACAAAAAGAAAAYAAAACAAAAAGABAAkAAAACAAAAAAAAAAkAAAACAAQAADAAAAQAAAAAAAAAAFADAAEAAAACAAAAAAADAP3/AAACAAQAAAAFAP3/AAACAAAAAAAHAP3/AAAAAAQAAAAHAP//AAACAAAAAGAHAAEAAAAAAAQAAFAFAAEAAAACAAQAAAA=")
@@ -29,10 +29,10 @@ plate_type = 1
 [node name="Plate3" parent="." instance=ExtResource("2_5lru4")]
 position = Vector2(20, 10)
 
-[node name="DoorController10" type="Node2D" parent="."]
-script = ExtResource("4_wnufy")
+[node name="DoorController8" type="Node2D" parent="."]
+script = ExtResource("4_4gbxj")
 
-[node name="Door" parent="DoorController10" instance=ExtResource("4_absw3")]
+[node name="Door" parent="DoorController8" instance=ExtResource("4_absw3")]
 position = Vector2(56, -7)
 scale = Vector2(1, 1.125)
 
@@ -42,7 +42,7 @@ position = Vector2(81, -7)
 [node name="KillBrick" parent="." instance=ExtResource("7_4gbxj")]
 position = Vector2(-9, 208)
 
-[connection signal="depressed" from="Plate" to="DoorController10" method="_on_plate_depressed"]
-[connection signal="pressed" from="Plate" to="DoorController10" method="_on_plate_pressed"]
-[connection signal="depressed" from="Plate2" to="DoorController10" method="_on_plate_2_depressed"]
-[connection signal="pressed" from="Plate2" to="DoorController10" method="_on_plate_2_pressed"]
+[connection signal="depressed" from="Plate" to="DoorController8" method="_on_plate_depressed"]
+[connection signal="pressed" from="Plate" to="DoorController8" method="_on_plate_pressed"]
+[connection signal="depressed" from="Plate2" to="DoorController8" method="_on_plate_2_depressed"]
+[connection signal="pressed" from="Plate2" to="DoorController8" method="_on_plate_2_pressed"]

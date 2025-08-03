@@ -1,13 +1,13 @@
 [gd_scene load_steps=24 format=3 uid="uid://c512uvu8nbhmc"]
 
-[ext_resource type="Script" uid="uid://citdoejqs2b2s" path="res://ending.gd" id="1_uvbhr"]
+[ext_resource type="Script" path="res://ending.gd" id="1_uvbhr"]
 [ext_resource type="Texture2D" uid="uid://byv1v3kdn0n1f" path="res://assets/Sky BG.png" id="2_m7rhh"]
 [ext_resource type="Texture2D" uid="uid://cv6r5hvognknd" path="res://assets/Beantopia.png" id="3_e2dv3"]
 [ext_resource type="Texture2D" uid="uid://bqef60gka5t56" path="res://assets/Explosion.png" id="4_0t84q"]
 [ext_resource type="Texture2D" uid="uid://cucacp2ewyxr5" path="res://assets/Evil Lentil.png" id="5_a2d7o"]
 [ext_resource type="FontFile" uid="uid://cfoflph47piog" path="res://assets/ark-pixel-12px-proportional-latin.ttf" id="6_ujx65"]
 [ext_resource type="Script" uid="uid://bb6vl0q0ceqbv" path="res://skip_dialogue.gd" id="7_3740v"]
-[ext_resource type="Script" uid="uid://do4c4wl1nlenm" path="res://credits_text.gd" id="7_m7rhh"]
+[ext_resource type="Script" path="res://credits_text.gd" id="7_m7rhh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3qvs"]
 atlas = ExtResource("3_e2dv3")
