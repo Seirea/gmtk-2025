@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=4 uid="uid://nm1yse7ag2fy"]
+[gd_scene load_steps=7 format=4 uid="uid://nm1yse7ag2fy"]
 
 [ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="1_ftfcu"]
 [ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="2_e78ah"]
-[ext_resource type="TileSet" uid="uid://i1wglt1ucwmr" path="res://woodset.tres" id="3_nsqb1"]
+[ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="3_nsqb1"]
+[ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="4_t60mx"]
+[ext_resource type="Script" uid="uid://cyluihvtwyujl" path="res://Levels/door_controller_4.gd" id="4_ujo87"]
+[ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="6_hvgxt"]
 
 [node name="Level4" type="Node2D"]
 
@@ -11,7 +14,7 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAAAAEABAACAAAAAAD+/wEABAAAAAAAAAACAAEABAAEAAAAAAD+/wQABAAEAAAAAAD8/wQABAACAAAAAAD6/wQABAAAAAAAAAACAAQABAAAAAAAAAAEAAQABAACAAAAAAAGAAQABAAEAAAAAAD+/wcABAAAAAAAAAAAAAcABAACAAAAAAACAAcABAAEAAAAAAACAAkABAAAAAAAAAAEAAkABAACAAAAAAAGAAkABAACAAAAAAAIAAkABAAEAAAAAAD6/wYABAAEAAAAAAD4/wYABAAAAAAAAAAIAAYABAAEAAAAAAAGAAYABAAAAAAAAAALAAgABAAAAAAAAAANAAgABAACAAAAAAAPAAgABAAEAAAAAAA=")
 tile_set = ExtResource("1_ftfcu")
 
-[node name="Plate" parent="." instance=ExtResource("2_e78ah")]
+[node name="AntiSproutPlate" parent="." instance=ExtResource("2_e78ah")]
 position = Vector2(0, 18)
 
 [node name="Plate2" parent="." instance=ExtResource("2_e78ah")]
@@ -25,5 +28,23 @@ plate_type = 1
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 texture_filter = 1
 position = Vector2(-6, -10)
-tile_map_data = PackedByteArray("AAAHAAYAAAABAAAAAGAHAAUAAAABAAAAAGAHAAQAAAABAAAAAGAHAAMAAAABAAAAAGAHAAIAAAABAAAAAGAHAAEAAAABAAAAAGAHAAAAAAABAAAAAGAHAP//AAABAAAAAGAHAP7/AAABAAAAAGAHAP3/AAABAAAAAGD6/wYAAAABAAAAAFD6/wUAAAABAAAAAFD6/wQAAAABAAAAAFD6/wMAAAABAAAAAFD6/wIAAAABAAAAAFD6/wEAAAABAAAAAFD6/wAAAAABAAAAAFD6////AAABAAAAAFD6//7/AAABAAAAAFD6//3/AAABAAAAAFD6//z/AAABAAAAAFAHAPz/AAABAAAAAGD6//v/AAACAAAAADD7//v/AAACAAAAADD8//v/AAACAAAAADD9//v/AAACAAAAADD+//v/AAACAAAAADD///v/AAACAAAAADAAAPv/AAACAAAAADABAPv/AAACAAAAADACAPv/AAACAAAAADADAPv/AAACAAAAADAEAPv/AAACAAAAADAFAPv/AAACAAAAADAGAPv/AAACAAAAADAHAPv/AAACAAAAADA=")
+tile_map_data = PackedByteArray("AAD5/wcAAAAAAAAAAGD5/wUAAAACAAAAAGD5/wQAAAACAAAAAGD5/wMAAAACAAAAAGD5/wIAAAACAAAAAGD5/wEAAAACAAAAAGD5/wAAAAACAAAAAGD5////AAACAAAAAGD5//7/AAACAAAAAGD5//3/AAACAAAAAGD5//v/AAAAAAQAAGD7//v/AAACAAAAAAD8//v/AAACAAAAAAD9//v/AAACAAAAAAD+//v/AAACAAAAAAD///v/AAACAAAAAAAAAPv/AAACAAAAAAABAPv/AAACAAAAAAACAPv/AAACAAAAAAADAPv/AAACAAAAAAAEAPv/AAACAAAAAAAHAAcAAAAAAAAAAGAHAAUAAAACAAAAAGAHAAQAAAACAAAAAGAHAAMAAAACAAAAAGAHAAIAAAACAAAAAGAHAAEAAAACAAAAAGAHAAAAAAACAAAAAGAHAP//AAACAAAAAGAHAP7/AAACAAAAAGAHAPv/AAAAAAQAAAAHAP3/AAACAAAAAGAFAPv/AAACAAAAADA=")
 tile_set = ExtResource("3_nsqb1")
+
+[node name="DoorController4" type="Node2D" parent="."]
+script = ExtResource("4_ujo87")
+
+[node name="Door" parent="DoorController4" instance=ExtResource("4_t60mx")]
+position = Vector2(114, 132)
+
+[node name="KillBrick" parent="." instance=ExtResource("6_hvgxt")]
+position = Vector2(8, 167)
+
+[node name="KillBrick2" parent="." instance=ExtResource("6_hvgxt")]
+position = Vector2(-124, 141)
+rotation = 1.5708
+
+[connection signal="depressed" from="Plate2" to="DoorController4" method="_on_plate_2_depressed"]
+[connection signal="pressed" from="Plate2" to="DoorController4" method="_on_plate_2_pressed"]
+[connection signal="depressed" from="Plate3" to="DoorController4" method="_on_plate_3_depressed"]
+[connection signal="pressed" from="Plate3" to="DoorController4" method="_on_plate_3_pressed"]

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cucacp2ewyxr5" path="res://assets/Evil Lentil.png" id="4_1jc3m"]
 [ext_resource type="Texture2D" uid="uid://bn5p3i8rwd8f2" path="res://assets/I hate beans.png" id="5_o1ytn"]
 [ext_resource type="FontFile" uid="uid://cfoflph47piog" path="res://assets/ark-pixel-12px-proportional-latin.ttf" id="6_imb4w"]
-[ext_resource type="Script" uid="uid://bb6vl0q0ceqbv" path="res://skip_dialogue.gd" id="7_4rug3"]
+[ext_resource type="Script" path="res://skip_dialogue.gd" id="7_4rug3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3qvs"]
 atlas = ExtResource("2_imb4w")
@@ -234,9 +234,9 @@ offset_bottom = 688.0
 scale = Vector2(3.78992, 3.78992)
 text = "Your simple temporal anchor
 allows you to go back in time
-if anything goes wrong, it also
-can create Temporal Spectres
-to aid you in your mission."
+if anything goes wrong, as it 
+automatically creates 
+Temporal Spectres when you die."
 label_settings = SubResource("LabelSettings_4rug3")
 
 [node name="Text5" type="Label" parent="."]
@@ -246,10 +246,10 @@ offset_top = 596.0
 offset_right = 265.0
 offset_bottom = 688.0
 scale = Vector2(3.78992, 3.78992)
-text = "Use the `r` key to go back
-in time whilst creating a
-Spectre, and `e` to
-reset fully. "
+text = "Use the `Q` key to manually
+go back in time 
+whilst creating a Spectre, 
+and use `R` to reset fully. "
 label_settings = SubResource("LabelSettings_4rug3")
 
 [node name="Text6" type="Label" parent="."]
@@ -262,7 +262,7 @@ scale = Vector2(3.78992, 3.78992)
 text = "Your final ability, is the
 unique ability of a bean to
 sprout, create a sprout with
-the `e` key which moves
+the `E` key which moves
 opposite of you."
 label_settings = SubResource("LabelSettings_4rug3")
 

@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=4 uid="uid://lgqdcyhobpxh"]
+[gd_scene load_steps=8 format=4 uid="uid://lgqdcyhobpxh"]
 
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="3_3mhv4"]
 [ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="4_rf6l5"]
 [ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="4_syshm"]
-[ext_resource type="TileSet" uid="uid://i1wglt1ucwmr" path="res://woodset.tres" id="5_syshm"]
+[ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="5_syshm"]
+[ext_resource type="Script" uid="uid://mc5s2gfd612x" path="res://Levels/door_controller.gd" id="6_0urlm"]
+[ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="6_rfktq"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Collectible" parent="." instance=ExtResource("2_dilhk")]
-position = Vector2(143, -25)
+position = Vector2(215, -9)
 
 [node name="KillBrick" parent="." instance=ExtResource("3_3mhv4")]
 position = Vector2(-1, 115)
@@ -24,5 +26,15 @@ position = Vector2(60, 17)
 plate_type = 1
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD9/wAAAAABAAAAAGD9////AAABAAAAAGD9//7/AAABAAAAAGD9//3/AAABAAAAAGD9//z/AAABAAAAAGD9//v/AAABAAAAAGD+//r/AAABAAAAAAD///r/AAABAAAAAAAAAPr/AAABAAAAAAABAPr/AAABAAAAAAACAPr/AAABAAAAAAADAPr/AAABAAAAAAAEAPr/AAABAAAAAAAFAPr/AAABAAAAAAAGAPr/AAABAAAAAAA=")
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD9/wEAAAAAAAAAAGD9////AAACAAAAAFD9//3/AAACAAAAAFD9//v/AAACAAAAAFD9//n/AAAAAAQAAGD///n/AAACAAAAAAABAPn/AAACAAAAAAADAPn/AAACAAAAAAAFAPn/AAACAAAAAAAHAPn/AAACAAAAAAAJAPn/AAAAAAQAAAAJAPv/AAACAAAAAFAJAP3/AAACAAAAAFAJAP7/AAACAAAAAGAJAAIAAAACAAIAAFA=")
 tile_set = ExtResource("5_syshm")
+
+[node name="DoorController" type="Node" parent="."]
+script = ExtResource("6_0urlm")
+
+[node name="Door" parent="DoorController" instance=ExtResource("6_rfktq")]
+position = Vector2(152, 8)
+
+[connection signal="depressed" from="Plate" to="DoorController" method="_on_plate_depressed"]
+[connection signal="pressed" from="Plate" to="DoorController" method="_on_plate_pressed"]

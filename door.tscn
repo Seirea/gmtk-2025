@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcmqg7wa7lk0g"]
+
+[ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="1_ba8gm"]
+[ext_resource type="Script" uid="uid://ddia4drksq046" path="res://door.gd" id="1_v6xrn"]
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_v6xrn")
+
+[node name="OpenLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+position = Vector2(-8, -8)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 80)
+tile_set = ExtResource("1_ba8gm")
+
+[node name="ClosedLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+position = Vector2(-8, -8)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 80)
+tile_set = ExtResource("1_ba8gm")
