@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=4 uid="uid://2dqf0vxfhg4y"]
+
+[ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="2_dilhk"]
+[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="4_rf6l5"]
+[ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="4_syshm"]
+[ext_resource type="Script" uid="uid://c6p4npwhcqw4p" path="res://Levels/door_controller_3.gd" id="5_6okxb"]
+[ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="5_syshm"]
+[ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="6_rfktq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wnufy"]
+font_size = 128
+
+[node name="Level3" type="Node2D"]
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+texture_filter = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD//wEABAACAAAAAAABAAEABAACAAAAAAADAAEABAACAAAAAAD9/wEABAACAAAAAAD7/wEABAACAAAAAAAFAAEABAACAAAAAAAHAAEABAACAAAAAAAIAAEABAACAAAAAAAJAAEABAACAAAAAAAKAAEABAACAAAAAAALAAEABAACAAAAAAAMAAEABAACAAAAAAANAAEABAACAAAAAAAOAAEABAACAAAAAAD5/wEABAACAAAAAAD3/wEABAAAAAAAAAAQAAEABAAEAAAAAAA=")
+tile_set = ExtResource("4_syshm")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(4, -16)
+tile_map_data = PackedByteArray("AAD5////AAACAAAAAAD3////AAAAAAQAAGD3/wEAAAACAAAAAGD3/wMAAAAAAAAAAGD7////AAACAAAAAAD9////AAACAAAAAAD/////AAACAAAAAAABAP//AAACAAAAAAADAP//AAACAAAAAAAFAP//AAACAAAAAAAHAP//AAACAAAAAAAJAP//AAACAAQAAAALAP//AAACAAAAAAANAP//AAACAAAAAAAPAP//AAAAAAQAAAAPAAEAAAACAAAAAGAPAAMAAAAAAAAAAGAJAAMAAAACAAIAAFA=")
+tile_set = ExtResource("5_syshm")
+
+[node name="Plate" parent="." instance=ExtResource("4_rf6l5")]
+position = Vector2(-98, 20)
+plate_type = 1
+
+[node name="Plate2" parent="." instance=ExtResource("4_rf6l5")]
+position = Vector2(-45, 20)
+plate_type = 1
+
+[node name="AntiSproutPlate" parent="." instance=ExtResource("4_rf6l5")]
+position = Vector2(92, 20)
+
+[node name="Collectible" parent="." instance=ExtResource("2_dilhk")]
+position = Vector2(186, 0)
+
+[node name="DoorController3" type="Node2D" parent="."]
+script = ExtResource("5_6okxb")
+
+[node name="Door" parent="DoorController3" instance=ExtResource("6_rfktq")]
+position = Vector2(156, 8)
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 24.0
+offset_top = -62.0
+offset_right = 2353.0
+offset_bottom = 469.0
+scale = Vector2(0.06, 0.06)
+text = "Anti-Sprouting pads prevent beans 
+from sprouting new beans."
+label_settings = SubResource("LabelSettings_wnufy")
+
+[connection signal="depressed" from="Plate" to="DoorController3" method="_on_plate_depressed"]
+[connection signal="pressed" from="Plate" to="DoorController3" method="_on_plate_pressed"]
+[connection signal="depressed" from="Plate2" to="DoorController3" method="_on_plate_2_depressed"]
+[connection signal="pressed" from="Plate2" to="DoorController3" method="_on_plate_2_pressed"]

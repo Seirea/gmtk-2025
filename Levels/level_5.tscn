@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=4 uid="uid://bs6i2iib4j5kk"]
+
+[ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="1_1xify"]
+[ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="2_kgnlk"]
+[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="3_xagau"]
+[ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="4_ytgun"]
+[ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="5_rpnhq"]
+[ext_resource type="Script" uid="uid://msluh4ra6r7c" path="res://Levels/door_controller_2.gd" id="6_hu0ol"]
+[ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="7_m47b0"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="KillBrick" parent="." instance=ExtResource("1_1xify")]
+position = Vector2(-1, 115)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD//wEABAACAAAAAAABAAEABAACAAAAAAADAAEABAACAAAAAAAFAAEABAACAAAAAAAHAAEABAACAAAAAAAJAAEABAACAAAAAAALAAEABAACAAAAAAANAAEABAAEAAAAAAD9/wEABAACAAAAAAD7/wEABAACAAAAAAD5/wEABAACAAAAAAD3/wEABAAAAAAAAAA=")
+tile_set = ExtResource("2_kgnlk")
+
+[node name="Plate" parent="." instance=ExtResource("3_xagau")]
+position = Vector2(60, 17)
+plate_type = 1
+
+[node name="CoinArea" parent="." instance=ExtResource("4_ytgun")]
+position = Vector2(-117, -20)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAKAAEAAAAAAAAAAGAKAP//AAACAAAAAGAKAP3/AAACAAAAAGAKAPv/AAACAAAAAGAKAPn/AAACAAAAAGAKAPf/AAAAAAQAAAAIAPf/AAACAAAAAAAGAPf/AAACAAAAAAAEAPf/AAACAAAAAAACAPf/AAACAAAAAAAAAPf/AAACAAAAAAD+//f/AAACAAAAAAD8//f/AAAAAAQAAGD8//n/AAACAAAAAGD8//v/AAACAAAAAGD8//3/AAACAAAAAGD8//7/AAACAAAAAGD8/wIAAAACAAIAAFA=")
+tile_set = ExtResource("5_rpnhq")
+
+[node name="DoorController2" type="Node2D" parent="."]
+script = ExtResource("6_hu0ol")
+
+[node name="Door" parent="DoorController2" instance=ExtResource("7_m47b0")]
+position = Vector2(-56, 8)
+
+[connection signal="depressed" from="Plate" to="DoorController2" method="_on_plate_depressed"]
+[connection signal="pressed" from="Plate" to="DoorController2" method="_on_plate_pressed"]

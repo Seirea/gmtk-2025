@@ -25,9 +25,6 @@ func wait(seconds: float, i: int) -> void:
 		next.emit()
 
 
-func meow() -> void:
-	await get_viewport()
-
 func _ready() -> void:
 	$Text1.show()
 	
@@ -47,7 +44,7 @@ func _ready() -> void:
 	$LentilDialogue.frame += 1
 	$Explosion.show()
 	$Explosion.play("default")
-	SoundService.play_stream(explosion)
+	SoundService.play_stream(explosion, -15)
 
 	await sleep(0.5)
 	$Beantopia.frame = 1

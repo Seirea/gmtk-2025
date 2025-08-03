@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwg6s6w4jsioy"]
 
 [ext_resource type="Script" uid="uid://b6copto055kpr" path="res://World/coin_area.gd" id="1_5m816"]
-[ext_resource type="Texture2D" uid="uid://cos3dna3tp37y" path="res://assets/PlatformerPack/Sprites/Tiles/Default/coin_gold.png" id="1_m0kkh"]
+[ext_resource type="Texture2D" uid="uid://up6hfhptbsfe" path="res://assets/world/Star-1.png.png" id="2_o6lyb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4klth"]
 size = Vector2(20, 21)
@@ -13,9 +13,9 @@ script = ExtResource("1_5m816")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_4klth")
 
-[node name="CoinGold" type="Sprite2D" parent="."]
-position = Vector2(-5.68434e-14, 1.13687e-13)
-scale = Vector2(-0.514, -0.514)
-texture = ExtResource("1_m0kkh")
+[node name="Star-1_png" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 3.8147e-06)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_o6lyb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

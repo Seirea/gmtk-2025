@@ -22,12 +22,27 @@ enum Flags {
 const left_sprout_frames: SpriteFrames = preload("res://Player/SPROUT_LEFT_FRAMES.tres")
 const right_sprout_frames: SpriteFrames = preload("res://Player/SPROUT_RIGHT_FRAMES.tres")
 
+var timeshift_sound = preload("res://assets/tick.ogg")
 var loaded_player = preload("res://Player/player.tscn")
 var spectre = preload("res://Player/spectre_node.tscn")
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D # Path to your Sprite2D node (if you have one, for flipping)
 
+
+func _ready() -> void:	
+	get_node("/root/Main/CurrentLevel").sprout.connect(ON_SPROUT)
+
 func kill() -> void:
+	SoundService.play_stream(timeshift_sound)
+	
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	get_node("%TimeshiftModulate").visible = true
+	await get_tree().create_timer(1.5).timeout
+	get_node("%TimeshiftModulate").visible = false
+
+	self.process_mode = Node.PROCESS_MODE_INHERIT
+	
 	var created = spectre.instantiate()
 	created.position = position
 	position = Vector2.ZERO
@@ -47,14 +62,31 @@ func sprout() -> void:
 		
 	get_node("/root/Main/Clones").add_child(clone)
 	
+func update_sprout_counter() -> void:
+	get_node("%SproutCounter").text = "Sprouts: %d/2" % min(get_node("%CurrentLevel").sprout_amount, 2)
+	
+func increment_sprout_count() -> void:
+	get_node("%CurrentLevel").sprout_amount += 1
+	get_node("%CurrentLevel").sprout_amount = min(get_node("%CurrentLevel").sprout_amount, 2)
+	update_sprout_counter()
+
+
+	
 func _input(event: InputEvent) -> void:
 	
 	# sprouts and real can make new sprouts
-	if event.is_action_pressed("sprout"):
-		if flags & Flags.SproutingDisabled == 0:
-			sprout()
-		elif body_type == BodyState.REAL:
-			get_node("%GlobalCamera").add_trauma(0.5)
+	#if event.is_action_pressed("sprout"):
+		#var sprout_amt = get_node("/root/Main/CurrentLevel").sprout_amount
+		#if (sprout_amt < 2) and flags & Flags.SproutingDisabled == 0:
+			#sprout()
+		#elif body_type == BodyState.REAL:
+			#get_node("%ErrorModulate").visible = true
+			#get_node("%GlobalCamera").add_trauma(0.1)
+			#await get_tree().create_timer(0.5).timeout
+			#get_node("%ErrorModulate").visible = false
+		#
+		#if body_type == BodyState.REAL:	
+			#increment_sprout_count.call_deferred()
 
 	if body_type != BodyState.REAL:
 		return
@@ -64,8 +96,8 @@ func _input(event: InputEvent) -> void:
 		kill()
 	
 	if event.is_action_pressed("hard_reset"):
-		kill()
-		get_node("/root/Main/Clones").clear_all_clones();
+		await kill()
+		get_node("%CurrentLevel").reset_level()
 	
 	
 func _physics_process(delta):				
@@ -97,3 +129,18 @@ func _set_animation_state(new_state: StringName) -> void:
 
 	sprite.animation = new_state
 	sprite.play()
+
+
+func ON_SPROUT(sprout_amt: int) -> void:
+	print(self,"SPROUTED")
+	
+	if (sprout_amt < 2) and flags & Flags.SproutingDisabled == 0:
+		sprout()
+	elif body_type == BodyState.REAL:
+		get_node("%ErrorModulate").visible = true
+		get_node("%GlobalCamera").add_trauma(0.1)
+		await get_tree().create_timer(0.5).timeout
+		get_node("%ErrorModulate").visible = false
+	
+	#if body_type == BodyState.REAL:	
+		#increment_sprout_count.call_deferred()

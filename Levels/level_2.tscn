@@ -1,40 +1,26 @@
-[gd_scene load_steps=8 format=4 uid="uid://bs6i2iib4j5kk"]
+[gd_scene load_steps=4 format=4 uid="uid://b5cn7xtkgy4vv"]
 
-[ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="2_bcgyv"]
+[ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="1_ll1bl"]
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="2_kbe2v"]
-[ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="3_fbld2"]
-[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="4_s275v"]
-[ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="5_bcgyv"]
-[ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="6_fbld2"]
-[ext_resource type="Script" uid="uid://msluh4ra6r7c" path="res://Levels/door_controller_2.gd" id="6_s275v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbe2v"]
+font_size = 128
 
 [node name="Level2" type="Node2D"]
 
-[node name="KillBrick" parent="." instance=ExtResource("2_bcgyv")]
-position = Vector2(-1, 115)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-texture_filter = 1
-tile_map_data = PackedByteArray("AAD//wEABAACAAAAAAABAAEABAACAAAAAAADAAEABAACAAAAAAAFAAEABAACAAAAAAAHAAEABAACAAAAAAAJAAEABAACAAAAAAALAAEABAACAAAAAAANAAEABAAEAAAAAAD9/wEABAACAAAAAAD7/wEABAACAAAAAAD5/wEABAACAAAAAAD3/wEABAAAAAAAAAA=")
-tile_set = ExtResource("3_fbld2")
+tile_map_data = PackedByteArray("AAD//wEABAACAAAAAAABAAEABAACAAAAAAADAAEABAACAAAAAAAFAAEABAAEAAAAAAAHAPr/BAAAAAAAAAAJAPr/BAACAAAAAAALAPr/BAAEAAAAAAD9/wEABAAAAAAAAAA=")
+tile_set = ExtResource("1_ll1bl")
 
-[node name="Plate" parent="." instance=ExtResource("4_s275v")]
-position = Vector2(60, 17)
-plate_type = 1
+[node name="Collectible" parent="." instance=ExtResource("2_kbe2v")]
+position = Vector2(162, -118)
 
-[node name="CoinArea" parent="." instance=ExtResource("2_kbe2v")]
-position = Vector2(-117, -20)
-
-[node name="TileMapLayer2" type="TileMapLayer" parent="."]
-texture_filter = 1
-tile_map_data = PackedByteArray("AAAKAAEAAAAAAAAAAGAKAP//AAACAAAAAGAKAP3/AAACAAAAAGAKAPv/AAACAAAAAGAKAPn/AAACAAAAAGAKAPf/AAAAAAQAAAAIAPf/AAACAAAAAAAGAPf/AAACAAAAAAAEAPf/AAACAAAAAAACAPf/AAACAAAAAAAAAPf/AAACAAAAAAD+//f/AAACAAAAAAD8//f/AAAAAAQAAGD8//n/AAACAAAAAGD8//v/AAACAAAAAGD8//3/AAACAAAAAGD8//7/AAACAAAAAGD8/wIAAAACAAIAAFA=")
-tile_set = ExtResource("5_bcgyv")
-
-[node name="DoorController2" type="Node2D" parent="."]
-script = ExtResource("6_s275v")
-
-[node name="Door" parent="DoorController2" instance=ExtResource("6_fbld2")]
-position = Vector2(-56, 8)
-
-[connection signal="depressed" from="Plate" to="DoorController2" method="_on_plate_depressed"]
-[connection signal="pressed" from="Plate" to="DoorController2" method="_on_plate_pressed"]
+[node name="Label" type="Label" parent="."]
+offset_left = -145.0
+offset_top = -85.0
+offset_right = 1810.0
+offset_bottom = 268.0
+scale = Vector2(0.115, 0.115)
+text = "Press \"Q\" to travel back in time,
+ creating a Temporal Spectre."
+label_settings = SubResource("LabelSettings_kbe2v")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=4 uid="uid://nm1yse7ag2fy"]
+
+[ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="1_6yfys"]
+[ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="2_sdkrb"]
+[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="3_krg5q"]
+[ext_resource type="Script" uid="uid://cyluihvtwyujl" path="res://Levels/door_controller_4.gd" id="4_6yfys"]
+[ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="4_gljo5"]
+[ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="5_5008v"]
+[ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="7_jmbbd"]
+
+[node name="Level4" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAEABAACAAAAAAD+/wEABAAAAAAAAAACAAEABAAEAAAAAAD+/wQABAAEAAAAAAD8/wQABAACAAAAAAD6/wQABAAAAAAAAAACAAQABAAAAAAAAAAEAAQABAACAAAAAAAGAAQABAAEAAAAAAD+/wcABAAAAAAAAAAAAAcABAACAAAAAAACAAcABAAEAAAAAAACAAkABAAAAAAAAAAEAAkABAACAAAAAAAGAAkABAACAAAAAAAIAAkABAAEAAAAAAD6/wYABAAEAAAAAAD4/wYABAAAAAAAAAALAAgABAAAAAAAAAANAAgABAACAAAAAAAPAAgABAAEAAAAAAA=")
+tile_set = ExtResource("2_sdkrb")
+
+[node name="AntiSproutPlate" parent="." instance=ExtResource("3_krg5q")]
+position = Vector2(0, 18)
+
+[node name="Plate2" parent="." instance=ExtResource("3_krg5q")]
+position = Vector2(-62, 65)
+plate_type = 1
+
+[node name="Plate3" parent="." instance=ExtResource("3_krg5q")]
+position = Vector2(3, 112)
+plate_type = 1
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+texture_filter = 1
+position = Vector2(-6, -1)
+tile_map_data = PackedByteArray("AAD5/wcAAAAAAAAAAGD5/wUAAAACAAAAAGD5/wQAAAACAAAAAGD5/wMAAAACAAAAAGD5/wIAAAACAAAAAGD5/wEAAAACAAAAAGD5/wAAAAACAAAAAGD5////AAACAAAAAGD5//7/AAACAAAAAGD5//3/AAACAAAAAGD5//v/AAAAAAQAAGD7//v/AAACAAAAAAD8//v/AAACAAAAAAD9//v/AAACAAAAAAD+//v/AAACAAAAAAD///v/AAACAAAAAAAAAPv/AAACAAAAAAABAPv/AAACAAAAAAACAPv/AAACAAAAAAADAPv/AAACAAAAAAAEAPv/AAACAAAAAAAHAAcAAAAAAAAAAGAHAAUAAAACAAAAAGAHAAQAAAACAAAAAGAHAAMAAAACAAAAAGAHAAIAAAACAAAAAGAHAAEAAAACAAAAAGAHAAAAAAACAAAAAGAHAP//AAACAAAAAGAHAP7/AAACAAAAAGAHAPv/AAAAAAQAAAAHAP3/AAACAAAAAGAFAPv/AAACAAAAADAHAAoAAAACAAIAAFA=")
+tile_set = ExtResource("5_5008v")
+
+[node name="DoorController4" type="Node2D" parent="."]
+script = ExtResource("4_6yfys")
+
+[node name="Door" parent="DoorController4" instance=ExtResource("7_jmbbd")]
+position = Vector2(114, 135)
+
+[node name="KillBrick" parent="." instance=ExtResource("1_6yfys")]
+position = Vector2(8, 167)
+
+[node name="KillBrick2" parent="." instance=ExtResource("1_6yfys")]
+position = Vector2(-124, 141)
+rotation = 1.5708
+
+[node name="Collectible" parent="." instance=ExtResource("4_gljo5")]
+position = Vector2(212, 99)
+
+[connection signal="depressed" from="Plate2" to="DoorController4" method="_on_plate_2_depressed"]
+[connection signal="pressed" from="Plate2" to="DoorController4" method="_on_plate_2_pressed"]
+[connection signal="depressed" from="Plate3" to="DoorController4" method="_on_plate_3_depressed"]
+[connection signal="pressed" from="Plate3" to="DoorController4" method="_on_plate_3_pressed"]

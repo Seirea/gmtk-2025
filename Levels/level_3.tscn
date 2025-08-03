@@ -1,48 +1,54 @@
-[gd_scene load_steps=7 format=4 uid="uid://2dqf0vxfhg4y"]
+[gd_scene load_steps=9 format=4 uid="uid://lgqdcyhobpxh"]
 
-[ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="1_cb8d3"]
-[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="2_5lru4"]
-[ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="3_ej5lj"]
-[ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="4_absw3"]
-[ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="5_padch"]
-[ext_resource type="Script" uid="uid://c6p4npwhcqw4p" path="res://Levels/door_controller_3.gd" id="5_uwxw1"]
+[ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="1_ay5qi"]
+[ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="2_fa81k"]
+[ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="3_ck3gp"]
+[ext_resource type="PackedScene" uid="uid://b7n633vhp7b16" path="res://World/plate.tscn" id="4_trpa2"]
+[ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="5_4t7ew"]
+[ext_resource type="Script" uid="uid://mc5s2gfd612x" path="res://Levels/door_controller.gd" id="6_oojpf"]
+[ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="7_7cdb2"]
 
-[node name="Level3" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_ay5qi"]
+font_size = 128
 
-[node name="Layer0" type="TileMapLayer" parent="."]
+[node name="Level1" type="Node2D"]
+
+[node name="Collectible" parent="." instance=ExtResource("1_ay5qi")]
+position = Vector2(215, -9)
+
+[node name="KillBrick" parent="." instance=ExtResource("2_fa81k")]
+position = Vector2(-1, 115)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
-use_parent_material = true
-tile_map_data = PackedByteArray("AAD//wEABAACAAAAAAABAAEABAACAAAAAAADAAEABAACAAAAAAD///7/BAACAAAAAAABAP7/BAACAAAAAAADAP7/BAACAAAAAAD9/wEABAACAAAAAAD9//7/BAACAAAAAAD7//7/BAACAAAAAAD7/wEABAACAAAAAAAFAP7/BAACAAAAAAAFAAEABAACAAAAAAD5//7/BAAAAAAAAAD5/wEABAAAAAAAAAAHAAEABAACAAAAAAAIAAEABAACAAAAAAAJAAEABAACAAAAAAAKAAEABAACAAAAAAALAAEABAACAAAAAAAMAAEABAACAAAAAAANAAEABAACAAAAAAAOAAEABAACAAAAAAAHAP7/BAACAAAAAAAJAP7/BAACAAAAAAALAP7/BAAEAAAAAAA=")
-tile_set = ExtResource("1_cb8d3")
+tile_map_data = PackedByteArray("AAD9/wEABAAAAAAAAAD//wEABAACAAAAAAABAAEABAACAAAAAAADAAEABAACAAAAAAAFAAEABAACAAAAAAAHAAEABAACAAAAAAAJAAEABAACAAAAAAALAAEABAACAAAAAAANAAEABAAEAAAAAAA=")
+tile_set = ExtResource("3_ck3gp")
 
-[node name="Plate" parent="." instance=ExtResource("2_5lru4")]
-position = Vector2(-98, 20)
+[node name="Plate" parent="." instance=ExtResource("4_trpa2")]
+position = Vector2(60, 17)
 plate_type = 1
 
-[node name="Plate2" parent="." instance=ExtResource("2_5lru4")]
-position = Vector2(-45, 20)
-plate_type = 1
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD9/wEAAAAAAAAAAGD9////AAACAAAAAFD9//3/AAACAAAAAFD9//v/AAACAAAAAFD9//n/AAAAAAQAAGD///n/AAACAAAAAAABAPn/AAACAAAAAAADAPn/AAACAAAAAAAFAPn/AAACAAAAAAAHAPn/AAACAAAAAAAJAPn/AAAAAAQAAAAJAPv/AAACAAAAAFAJAP3/AAACAAAAAFAJAP7/AAACAAAAAGAJAAIAAAACAAIAAFA=")
+tile_set = ExtResource("5_4t7ew")
 
-[node name="AntiSproutPlate" parent="." instance=ExtResource("2_5lru4")]
-position = Vector2(92, 20)
+[node name="DoorController" type="Node" parent="."]
+script = ExtResource("6_oojpf")
 
-[node name="Collectible" parent="." instance=ExtResource("3_ej5lj")]
-position = Vector2(186, 0)
+[node name="Door" parent="DoorController" instance=ExtResource("7_7cdb2")]
+position = Vector2(152, 8)
 
-[node name="KillBrick" parent="." instance=ExtResource("5_padch")]
-position = Vector2(-115, -48)
-rotation = -3.14159
+[node name="Label2" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -70.0
+offset_right = 2308.0
+offset_bottom = 461.0
+scale = Vector2(0.06, 0.06)
+text = "Press \"E\" to sprout another bean,
+which moves in the opposite 
+direction of the bean that sprouted it."
+label_settings = SubResource("LabelSettings_ay5qi")
 
-[node name="KillBrick2" parent="." instance=ExtResource("5_padch")]
-position = Vector2(-117, 59)
-
-[node name="DoorController3" type="Node2D" parent="."]
-script = ExtResource("5_uwxw1")
-
-[node name="Door" parent="DoorController3" instance=ExtResource("4_absw3")]
-position = Vector2(152, 3)
-
-[connection signal="depressed" from="Plate" to="DoorController3" method="_on_plate_depressed"]
-[connection signal="pressed" from="Plate" to="DoorController3" method="_on_plate_pressed"]
-[connection signal="depressed" from="Plate2" to="DoorController3" method="_on_plate_2_depressed"]
-[connection signal="pressed" from="Plate2" to="DoorController3" method="_on_plate_2_pressed"]
+[connection signal="depressed" from="Plate" to="DoorController" method="_on_plate_depressed"]
+[connection signal="pressed" from="Plate" to="DoorController" method="_on_plate_pressed"]

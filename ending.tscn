@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c512uvu8nbhmc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j14t3"]
+font_size = 145
+
+[node name="Ending" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 179.0
+offset_right = 1907.0
+offset_bottom = 779.0
+text = "You have reached the end
+of the game! Thank you for
+playing!"
+label_settings = SubResource("LabelSettings_j14t3")

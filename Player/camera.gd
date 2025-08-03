@@ -1,21 +1,21 @@
 extends Camera2D
 
-@export var decay := 0.8 #How quickly shaking will stop [0,1].
-@export var max_offset := Vector2(100,75) #Maximum displacement in pixels.
+@export var decay := 0.5 #How quickly shaking will stop [0,1].
+@export var max_offset := Vector2(30, 30) #Maximum displacement in pixels.
 @export var max_roll := 0.1 #Maximum rotation in radians (use sparingly).
 @export var noise : FastNoiseLite #The source of random values.
 
 var noise_y = 0 #Value used to move through the noise
 
 var trauma := 0.0 #Current shake strength
-var trauma_pwr := 3 #Trauma exponent. Use [2,3]
+var trauma_pwr := 2.5 #Trauma exponent. Use [2,3]
 
 func _ready():
 	randomize()
 	noise.seed = randi()
 
 func add_trauma(amount : float):
-	trauma = min(trauma + amount, 1.0)
+	trauma = min(trauma + amount, 1)
 
 func _process(delta):
 	if trauma:
