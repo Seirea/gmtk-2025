@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=4 uid="uid://b5cn7xtkgy4vv"]
+[gd_scene load_steps=5 format=4 uid="uid://b5cn7xtkgy4vv"]
 
 [ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="1_ll1bl"]
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="2_kbe2v"]
+[ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="3_arsda"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kbe2v"]
 font_size = 128
@@ -16,11 +17,25 @@ tile_set = ExtResource("1_ll1bl")
 position = Vector2(162, -118)
 
 [node name="Label" type="Label" parent="."]
-offset_left = -145.0
-offset_top = -85.0
-offset_right = 1810.0
-offset_bottom = 268.0
+offset_left = -140.0
+offset_top = -131.0
+offset_right = 1857.0
+offset_bottom = 756.0
 scale = Vector2(0.115, 0.115)
 text = "Press \"Q\" to travel back in time,
- creating a Temporal Spectre."
+ creating a Temporal Spectre.
+
+Press \"R\" to fully reset the world
+with your Temporal Anchor."
 label_settings = SubResource("LabelSettings_kbe2v")
+
+[node name="KillBrick" parent="." instance=ExtResource("3_arsda")]
+position = Vector2(18, 92)
+
+[node name="KillBrick2" parent="." instance=ExtResource("3_arsda")]
+position = Vector2(-100, -9)
+rotation = 1.5708
+
+[node name="KillBrick3" parent="." instance=ExtResource("3_arsda")]
+position = Vector2(238, -8)
+rotation = -1.5708

@@ -39,7 +39,7 @@ script = ExtResource("4_6yfys")
 position = Vector2(114, 135)
 
 [node name="KillBrick" parent="." instance=ExtResource("1_6yfys")]
-position = Vector2(8, 167)
+position = Vector2(8, 188)
 
 [node name="KillBrick2" parent="." instance=ExtResource("1_6yfys")]
 position = Vector2(-124, 141)

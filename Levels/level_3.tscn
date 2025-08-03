@@ -17,7 +17,7 @@ font_size = 128
 position = Vector2(215, -9)
 
 [node name="KillBrick" parent="." instance=ExtResource("2_fa81k")]
-position = Vector2(-1, 115)
+position = Vector2(38, 87)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1

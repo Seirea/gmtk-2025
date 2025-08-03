@@ -11,7 +11,7 @@
 position = Vector2(215, -9)
 
 [node name="KillBrick" parent="." instance=ExtResource("3_3mhv4")]
-position = Vector2(-1, 115)
+position = Vector2(10, 110)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -20,3 +20,11 @@ tile_set = ExtResource("4_syshm")
 
 [node name="DoorController" type="Node" parent="."]
 script = ExtResource("6_0urlm")
+
+[node name="KillBrick2" parent="." instance=ExtResource("3_3mhv4")]
+position = Vector2(-107, -25)
+rotation = 1.5708
+
+[node name="KillBrick3" parent="." instance=ExtResource("3_3mhv4")]
+position = Vector2(38, -122)
+rotation = 3.14159

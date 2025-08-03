@@ -21,7 +21,6 @@ func _input(event: InputEvent) -> void:
 		sprout.emit(sprout_amount)
 		sprout_amount += 1
 		get_node("../Player").update_sprout_counter()
-
 		
 func reset_level() -> void:
 	get_node("../Clones").clear_all_clones()

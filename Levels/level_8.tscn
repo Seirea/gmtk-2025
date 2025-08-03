@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://d1nx5wil2vshd"]
+[gd_scene load_steps=8 format=4 uid="uid://d1nx5wil2vshd"]
 
 [ext_resource type="TileSet" uid="uid://dodaqulg6wo0p" path="res://terrain.tres" id="1_cb8d3"]
 [ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="1_o1lje"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="3_ej5lj"]
 [ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="4_absw3"]
 [ext_resource type="Script" uid="uid://dv8k7m8v0v3cy" path="res://Levels/door_controller_10.gd" id="4_wnufy"]
+[ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="7_4gbxj"]
 
 [node name="Level10" type="Node2D"]
 
@@ -38,6 +39,9 @@ scale = Vector2(1, 1.125)
 [node name="Collectible" parent="." instance=ExtResource("3_ej5lj")]
 position = Vector2(81, -7)
 is_final_star = true
+
+[node name="KillBrick" parent="." instance=ExtResource("7_4gbxj")]
+position = Vector2(-9, 208)
 
 [connection signal="depressed" from="Plate" to="DoorController10" method="_on_plate_depressed"]
 [connection signal="pressed" from="Plate" to="DoorController10" method="_on_plate_pressed"]
