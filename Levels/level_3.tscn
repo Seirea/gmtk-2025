@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://lgqdcyhobpxh"]
+[gd_scene load_steps=10 format=4 uid="uid://lgqdcyhobpxh"]
 
 [ext_resource type="PackedScene" uid="uid://dwg6s6w4jsioy" path="res://World/collectible.tscn" id="1_ay5qi"]
 [ext_resource type="PackedScene" uid="uid://de3ll5y5ohl3p" path="res://World/kill_brick.tscn" id="2_fa81k"]
@@ -7,8 +7,10 @@
 [ext_resource type="TileSet" uid="uid://drffhigt25v3k" path="res://wood.tres" id="5_4t7ew"]
 [ext_resource type="Script" uid="uid://mc5s2gfd612x" path="res://Levels/door_controller.gd" id="6_oojpf"]
 [ext_resource type="PackedScene" uid="uid://dcmqg7wa7lk0g" path="res://door.tscn" id="7_7cdb2"]
+[ext_resource type="FontFile" uid="uid://cfoflph47piog" path="res://assets/ark-pixel-12px-proportional-latin.ttf" id="8_fa81k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ay5qi"]
+font = ExtResource("8_fa81k")
 font_size = 128
 
 [node name="Level1" type="Node2D"]

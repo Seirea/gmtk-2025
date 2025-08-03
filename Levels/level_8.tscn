@@ -38,7 +38,6 @@ scale = Vector2(1, 1.125)
 
 [node name="Collectible" parent="." instance=ExtResource("3_ej5lj")]
 position = Vector2(81, -7)
-is_final_star = true
 
 [node name="KillBrick" parent="." instance=ExtResource("7_4gbxj")]
 position = Vector2(-9, 208)

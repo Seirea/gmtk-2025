@@ -8,13 +8,16 @@ signal sprout(current_count: int)
 
 func load_current_level() -> void:
 	var loaded: PackedScene = load("res://Levels/level_%d.tscn" % current_level) 
-	add_child(loaded.instantiate())
+	if loaded == null:
+		get_tree().change_scene_to_file.call_deferred("res://ending.tscn")
+	else:
+		add_child(loaded.instantiate())
 
 func _ready() -> void:
 	load_current_level()	
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("SKIP_LEVEL_CHEAT"):
+	if OS.is_debug_build() and event.is_action_pressed("SKIP_LEVEL_CHEAT"):
 		next_level()
 		
 	if event.is_action_pressed("sprout"):

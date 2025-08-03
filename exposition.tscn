@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cucacp2ewyxr5" path="res://assets/Evil Lentil.png" id="4_1jc3m"]
 [ext_resource type="Texture2D" uid="uid://bn5p3i8rwd8f2" path="res://assets/I hate beans.png" id="5_o1ytn"]
 [ext_resource type="FontFile" uid="uid://cfoflph47piog" path="res://assets/ark-pixel-12px-proportional-latin.ttf" id="6_imb4w"]
-[ext_resource type="Script" path="res://skip_dialogue.gd" id="7_4rug3"]
+[ext_resource type="Script" uid="uid://bb6vl0q0ceqbv" path="res://skip_dialogue.gd" id="7_4rug3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3qvs"]
 atlas = ExtResource("2_imb4w")

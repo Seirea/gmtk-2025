@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://che0d3y6ysfc0"]
+[gd_scene load_steps=30 format=3 uid="uid://che0d3y6ysfc0"]
 
 [ext_resource type="Script" uid="uid://cfwen0qatpiuw" path="res://Main/current_level.gd" id="1_k3v36"]
 [ext_resource type="Texture2D" uid="uid://ca0e8uoxb2l3d" path="res://assets/world/clouds.png" id="1_liyct"]
@@ -6,11 +6,140 @@
 [ext_resource type="PackedScene" uid="uid://cj0cjbkb3qgr4" path="res://Main/global_camera.tscn" id="3_ib3t1"]
 [ext_resource type="Script" uid="uid://c1xtec58ph6qk" path="res://Player/camera.gd" id="4_f6fdm"]
 [ext_resource type="Script" uid="uid://byrcjam3g3gd" path="res://World/clones.gd" id="5_rj11h"]
+[ext_resource type="FontFile" uid="uid://cfoflph47piog" path="res://assets/ark-pixel-12px-proportional-latin.ttf" id="7_ib3t1"]
+[ext_resource type="Texture2D" uid="uid://jy3koxiru1ck" path="res://assets/stopwatch.png" id="8_f6fdm"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f6fdm"]
+light_mode = 1
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lquwl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_liyct"]
+font = ExtResource("7_ib3t1")
 font_size = 48
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rj11h"]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj11h"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qac2q"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(384, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o60nc"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(256, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3gf5"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rix8b"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jx5h"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhr2j"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5bfp"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guo5i"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gq1e"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbdht"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puekb"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi84t"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4inf"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf7xu"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nqbc"]
+atlas = ExtResource("8_f6fdm")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xw814"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj11h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qac2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o60nc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3gf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rix8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jx5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhr2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5bfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guo5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gq1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbdht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puekb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi84t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4inf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf7xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nqbc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
 
 [node name="Main" type="Node2D"]
 
@@ -18,6 +147,9 @@ font_size = 48
 scroll_scale = Vector2(0.5, 0.5)
 
 [node name="Clouds" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("CanvasItemMaterial_f6fdm")
+position = Vector2(604.889, 331.75)
+scale = Vector2(3.02444, 3.02444)
 texture = ExtResource("1_liyct")
 
 [node name="CurrentLevel" type="Node2D" parent="."]
@@ -54,3 +186,13 @@ color = Color(0, 0.054902, 0.109804, 0.309804)
 unique_name_in_owner = true
 visible = false
 color = Color(1, 0.278431, 0.258824, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Clock" type="AnimatedSprite2D" parent="CanvasLayer"]
+material = SubResource("CanvasItemMaterial_rj11h")
+position = Vector2(960, 328)
+scale = Vector2(1.9847, 1.9847)
+sprite_frames = SubResource("SpriteFrames_xw814")
+autoplay = "default"

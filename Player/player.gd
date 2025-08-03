@@ -32,14 +32,28 @@ var spectre = preload("res://Player/spectre_node.tscn")
 func _ready() -> void:	
 	get_node("/root/Main/CurrentLevel").sprout.connect(ON_SPROUT)
 
+var can_die = true
+
+func reset_death_state():
+	await get_tree().create_timer(2).timeout
+	can_die = true
+
+
 func kill() -> void:
+	if not can_die:
+		return
+	can_die = false
+	reset_death_state()
+	
 	SoundService.play_stream(timeshift_sound)
 	
 	self.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	get_node("%TimeshiftModulate").visible = true
+	get_node("/root/Main/CanvasLayer").show()
 	await get_tree().create_timer(1.5).timeout
 	get_node("%TimeshiftModulate").visible = false
+	get_node("/root/Main/CanvasLayer").hide()
 
 	self.process_mode = Node.PROCESS_MODE_INHERIT
 	

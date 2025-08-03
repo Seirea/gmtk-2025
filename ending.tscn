@@ -1,16 +1,230 @@
-[gd_scene load_steps=2 format=3 uid="uid://c512uvu8nbhmc"]
+[gd_scene load_steps=24 format=3 uid="uid://c512uvu8nbhmc"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_j14t3"]
-font_size = 145
+[ext_resource type="Script" uid="uid://citdoejqs2b2s" path="res://ending.gd" id="1_uvbhr"]
+[ext_resource type="Texture2D" uid="uid://byv1v3kdn0n1f" path="res://assets/Sky BG.png" id="2_m7rhh"]
+[ext_resource type="Texture2D" uid="uid://cv6r5hvognknd" path="res://assets/Beantopia.png" id="3_e2dv3"]
+[ext_resource type="Texture2D" uid="uid://bqef60gka5t56" path="res://assets/Explosion.png" id="4_0t84q"]
+[ext_resource type="Texture2D" uid="uid://cucacp2ewyxr5" path="res://assets/Evil Lentil.png" id="5_a2d7o"]
+[ext_resource type="FontFile" uid="uid://cfoflph47piog" path="res://assets/ark-pixel-12px-proportional-latin.ttf" id="6_ujx65"]
+[ext_resource type="Script" uid="uid://bb6vl0q0ceqbv" path="res://skip_dialogue.gd" id="7_3740v"]
+[ext_resource type="Script" uid="uid://do4c4wl1nlenm" path="res://credits_text.gd" id="7_m7rhh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3qvs"]
+atlas = ExtResource("3_e2dv3")
+region = Rect2(0, 0, 128, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6665"]
+atlas = ExtResource("3_e2dv3")
+region = Rect2(0, 90, 128, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_220av"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3qvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6665")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fwwh"]
+atlas = ExtResource("5_a2d7o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1va7"]
+atlas = ExtResource("5_a2d7o")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3y0yq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fwwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1va7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imb4w"]
+atlas = ExtResource("4_0t84q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rug3"]
+atlas = ExtResource("4_0t84q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jc3m"]
+atlas = ExtResource("4_0t84q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1ytn"]
+atlas = ExtResource("4_0t84q")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61js4"]
+atlas = ExtResource("4_0t84q")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3xhj"]
+atlas = ExtResource("4_0t84q")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpyle"]
+atlas = ExtResource("4_0t84q")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udx4x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imb4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rug3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jc3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1ytn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61js4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3xhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpyle")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vdtgj"]
+font = ExtResource("6_ujx65")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
 
 [node name="Ending" type="Node2D"]
+script = ExtResource("1_uvbhr")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 23.0
-offset_top = 179.0
-offset_right = 1907.0
-offset_bottom = 779.0
-text = "You have reached the end
-of the game! Thank you for
-playing!"
-label_settings = SubResource("LabelSettings_j14t3")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(967.556, 543.75)
+scale = Vector2(4.83778, 4.83778)
+texture = ExtResource("2_m7rhh")
+
+[node name="Beantopia" type="AnimatedSprite2D" parent="."]
+position = Vector2(1319, 650)
+scale = Vector2(8.68889, 8.68889)
+sprite_frames = SubResource("SpriteFrames_220av")
+frame = 1
+
+[node name="EvilLentil" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(288, 670)
+scale = Vector2(16.1875, 16.1875)
+sprite_frames = SubResource("SpriteFrames_3y0yq")
+autoplay = "default"
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(290, 677)
+scale = Vector2(16.6406, 16.6406)
+sprite_frames = SubResource("SpriteFrames_udx4x")
+
+[node name="Text1" type="Label" parent="."]
+visible = false
+offset_left = 103.0
+offset_top = 596.0
+offset_right = 265.0
+offset_bottom = 688.0
+scale = Vector2(3.78992, 3.78992)
+text = "You have collected all the
+resources required to rebuild
+the master time anchor."
+label_settings = SubResource("LabelSettings_vdtgj")
+
+[node name="Text2" type="Label" parent="."]
+visible = false
+offset_left = 103.0
+offset_top = 596.0
+offset_right = 265.0
+offset_bottom = 688.0
+scale = Vector2(3.78992, 3.78992)
+text = "the Evil Lentil has heard of
+your return, but you are ready.
+You have prepared an explosive
+surprise for him."
+label_settings = SubResource("LabelSettings_vdtgj")
+
+[node name="Text3" type="Label" parent="."]
+visible = false
+offset_left = 103.0
+offset_top = 596.0
+offset_right = 265.0
+offset_bottom = 688.0
+scale = Vector2(3.78992, 3.78992)
+text = "Now with him gone, you begin
+rebuilding the Temporal Anchor."
+label_settings = SubResource("LabelSettings_vdtgj")
+
+[node name="Text4" type="Label" parent="."]
+visible = false
+offset_left = 103.0
+offset_top = 596.0
+offset_right = 265.0
+offset_bottom = 688.0
+scale = Vector2(3.78992, 3.78992)
+text = "Congratulations on rebuilding
+the Temporal Anchor! You
+have saved all of bean-kind!"
+label_settings = SubResource("LabelSettings_vdtgj")
+
+[node name="Text5" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 13.0
+offset_top = 16.0001
+offset_right = 937.0
+offset_bottom = 998.0
+bbcode_enabled = true
+text = "[color=\"#000000\"][font size=\"48\" name=\"res://assets/ark-pixel-12px-proportional-latin.ttf\"]Thank you for playing!
+Credits:
+[font size=\"36\"][url=\"https://github.com/stanleymw\"]stanleymw[/url]: Programming
+[url=\"https://github.com/yavko\"]yavko[/url]: Programming, Story, and Artwork
+[font size=\"24\"]
+[url]https://freesound.org/people/ycbcr/sounds/556991/[/url] - Clock Tick
+
+[url]https://freesound.org/people/plasterbrain/sounds/608431/[/url] - Pickup
+
+[url]https://freesound.org/people/proolsen/sounds/466272/[/url] - Pressure Plate
+
+[url]https://freesound.org/people/Seth_Makes_Sounds/sounds/679738/[/url] - Calm music
+
+[url]https://freesound.org/people/danlucaz/sounds/515380/[/url] - Dramatic Music
+
+[url]https://freesound.org/people/florianreichelt/sounds/563010/[/url] - Explosion
+
+[url]https://freesound.org/people/holizna/sounds/629175/[/url] - Menu Music"
+threaded = true
+script = ExtResource("7_m7rhh")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -63.0
+offset_top = -48.0
+offset_right = 1989.0
+offset_bottom = 1191.0
+focus_mode = 0
+flat = true
+script = ExtResource("7_3740v")
+
+[connection signal="meta_clicked" from="Text5" to="Text5" method="_on_meta_clicked"]

@@ -1,16 +1,14 @@
 extends Node2D
-class_name Exposition
 
 const explosion = preload("res://assets/563010__florianreichelt__explosion.mp3")
+
+const diff_music = preload("res://assets/reverse_piano.ogg")
 
 signal next
 
 @export var emitted = [false]
 
 @export var indx = -1
-
-const scary_music = preload("res://assets/515380__danlucaz__piano-loop-1.ogg")
-const peace_music = preload("res://assets/679738__seth_makes_sounds__calming-piano-loop-60bpm.ogg")
 
 func go_next(seconds: float) -> void:
 	indx += 1
@@ -27,60 +25,36 @@ func wait(seconds: float, i: int) -> void:
 	if not emitted[i]:
 		next.emit()
 
-
 func _ready() -> void:
 	$Text1.show()
+	BgMusic.switch_song(diff_music )
 	
-	await go_next(6)
+	await go_next(4)
 	$Text1.hide()
 	$Text2.show()
 	
-	await go_next(6)
+	await go_next(4)
 	$Text2.hide()
 	$EvilLentil.show()
-	$LentilDialogue.show()
-	BgMusic.switch_song(scary_music)
 	
-	await go_next(4)
-	$LentilDialogue.frame += 1
-	
-	await go_next(4)
-	$LentilDialogue.frame += 1
+	await sleep(0.5)
 	$Explosion.show()
 	$Explosion.play("default")
 	SoundService.play_stream(explosion, -15)
-
 	await sleep(0.5)
-	$Beantopia.frame = 1
-	
-	await go_next(3.5)
-	$LentilDialogue.frame += 1
-	
-	
-	await go_next(4)
 	$EvilLentil.hide()
-	$LentilDialogue.hide()
+	
+	await go_next(1)
 	$Text3.show()
 	
-	await go_next(6)
+	await go_next(3)
 	$Text3.hide()
+	$Beantopia.frame = 0
+	
+	await go_next(2)
 	$Text4.show()
-
-	await go_next(6)
+	
+	await go_next(3)
 	$Text4.hide()
 	$Text5.show()
-
-	await go_next(6)
-	$Text5.hide()
-	$Text6.show()
-
-	await go_next(6)
-	$Text6.hide()
-	$Text7.show()
-
-	await go_next(6)
-	$Text7.hide()
-	BgMusic.switch_song(peace_music)
-
 	
-	get_tree().change_scene_to_file("res://Main/main.tscn")
