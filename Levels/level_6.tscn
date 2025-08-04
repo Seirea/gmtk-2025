@@ -52,7 +52,7 @@ offset_top = -62.0
 offset_right = 2353.0
 offset_bottom = 469.0
 scale = Vector2(0.06, 0.06)
-text = "Anti-Sprouting pads prevent beans 
+text = "Anti-Sprouting pads prevent beans (AND SPROUTS)
 from sprouting new beans."
 label_settings = SubResource("LabelSettings_wnufy")
 

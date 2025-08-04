@@ -31,20 +31,20 @@ func wait(seconds: float, i: int) -> void:
 func _ready() -> void:
 	$Text1.show()
 	
-	await go_next(6)
+	await go_next(12)
 	$Text1.hide()
 	$Text2.show()
 	
-	await go_next(6)
+	await go_next(12)
 	$Text2.hide()
 	$EvilLentil.show()
 	$LentilDialogue.show()
 	BgMusic.switch_song(scary_music)
 	
-	await go_next(4)
+	await go_next(12)
 	$LentilDialogue.frame += 1
 	
-	await go_next(4)
+	await go_next(12)
 	$LentilDialogue.frame += 1
 	$Explosion.show()
 	$Explosion.play("default")
@@ -57,28 +57,28 @@ func _ready() -> void:
 	$LentilDialogue.frame += 1
 	
 	
-	await go_next(4)
+	await go_next(12)
 	$EvilLentil.hide()
 	$LentilDialogue.hide()
 	$Text3.show()
 	
-	await go_next(6)
+	await go_next(12)
 	$Text3.hide()
 	$Text4.show()
 
-	await go_next(6)
+	await go_next(12)
 	$Text4.hide()
 	$Text5.show()
 
-	await go_next(6)
+	await go_next(12)
 	$Text5.hide()
 	$Text6.show()
 
-	await go_next(6)
+	await go_next(12)
 	$Text6.hide()
 	$Text7.show()
 
-	await go_next(6)
+	await go_next(12)
 	$Text7.hide()
 	BgMusic.switch_song(peace_music)
 
